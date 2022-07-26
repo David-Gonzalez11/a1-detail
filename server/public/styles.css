@@ -36,3 +36,30 @@ p {
   width: 45%;
   margin-left: 10px;
 }
+
+.hidden {
+  display: none;
+}
+
+.continue-btn {
+  margin-right: 6rem;
+  margin-top: 10rem;
+}
+
+.mb-3 {
+  padding-top: 30px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 900px) {
+  .continue-btn {
+    width: 100%;
+    margin-left: 8rem;
+  }
+
+  .home-text {
+    display: flex;
+    justify-content: center;
+  }
+}

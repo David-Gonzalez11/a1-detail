@@ -9,7 +9,7 @@ export default class AuthPage extends React.Component {
 
     if (user) return <Redirect to="" />;
 
-    const welcomeMessage = route.path === 'sign-in'
+    const welcomeMessage = route.path === 'sign-up'
       ? 'Please sign in to continue'
       : 'Create an account to get started!';
     return (
@@ -20,7 +20,7 @@ export default class AuthPage extends React.Component {
               <i className="fas fa-bolt me-2" />
               Awesome App
             </h2>
-            <p className="text-muted mb-4">{welcomeMessage}</p>
+            <p className="text-muted mb-4">{ welcomeMessage }</p>
           </header>
           <div className="card p-3 ">
             <AuthForm
@@ -30,7 +30,6 @@ export default class AuthPage extends React.Component {
           </div>
         </div>
       </div>
-
     );
   }
 }

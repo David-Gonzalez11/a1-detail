@@ -34,8 +34,7 @@ const jsonMiddleware = express.json();
 app.use(jsonMiddleware);
 
 app.post('/api/auth/sign-up', (req, res, next) => {
-  const password = req.body;
-  const email = req.body;
+  const { password, email } = req.body;
   if (!email || !password) {
     throw new ClientError(400, 'email and password are required fields');
   }
@@ -45,7 +44,7 @@ app.post('/api/auth/sign-up', (req, res, next) => {
     .then(hashedPassword => {
       const text = `insert into "users" ("email", "hashedPassword")
       values ($1, $2)
-      returning "email", "userId", "createdAt"`;
+      returning "email", "userId"`;
       const values = [email, hashedPassword];
       db.query(text, values)
         .then(result => {

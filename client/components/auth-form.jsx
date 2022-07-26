@@ -30,7 +30,7 @@ export default class AuthForm extends React.Component {
       .then(res => res.json())
       .then(result => {
         if (action === 'sign-up') {
-          window.location.hash = 'sign-in';
+          window.location.hash = 'sign-up';
         } else if (result.user && result.token) {
           this.props.onSignIn(result);
         }
@@ -40,52 +40,51 @@ export default class AuthForm extends React.Component {
   render() {
     const { action } = this.props;
     const { handleChange, handleSubmit } = this;
-    const alternateActionHref = action === 'sign-up'
-      ? '#sign-in'
-      : '#sign-up';
-    const alternatActionText = action === 'sign-up'
-      ? 'Sign in instead'
-      : 'Register now';
+
     const submitButtonText = action === 'sign-up'
-      ? 'Register'
-      : 'Log In';
+      ? 'Login'
+      : 'Continue';
+    const styles = {
+      backgroundColor: 'black',
+      color: 'white',
+      height: '600px',
+      width: '100%'
+    };
     return (
-      <form className="w-100" onSubmit={handleSubmit}>
+      <form className="w-100" style={styles} onSubmit={handleSubmit}>
+       <h5 className='text-center pt-2'>Create Account</h5>
         <div className="mb-3">
-          <label htmlFor="username" className="form-label">
-            Username
+          <label htmlFor="email" className="form-label">
+            Email
           </label>
           <input
             required
-            autoFocus
-            id="username"
-            type="text"
-            name="username"
+            id="email"
+            type="email"
+            name="email"
             onChange={handleChange}
             className="form-control bg-light" />
         </div>
+
         <div className="mb-3">
-          <label htmlFor="password" className="form-label">
-            Password
-          </label>
-          <input
-            required
-            id="password"
-            type="password"
-            name="password"
-            onChange={handleChange}
-            className="form-control bg-light" />
-        </div>
+        <label htmlFor="Password" className="form-label">
+          Password
+        </label>
+        <input
+          required
+          id="password"
+          type="password"
+          name="password"
+          onChange={handleChange}
+          className="form-control bg-light" />
+</div>
         <div className="d-flex justify-content-between align-items-center">
-          <small>
-            <a className="text-muted" href={alternateActionHref}>
-              {alternatActionText}
-            </a>
-          </small>
-          <button type="submit" className="btn btn-primary">
+
+          <button type="submit" className="btn btn-primary continue-btn">
             {submitButtonText}
           </button>
         </div>
+
       </form>
     );
   }
