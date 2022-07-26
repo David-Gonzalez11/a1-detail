@@ -17,7 +17,6 @@ export default class AuthForm extends React.Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
     const { action } = this.props;
     const req = {
       method: 'POST',
@@ -26,7 +25,7 @@ export default class AuthForm extends React.Component {
       },
       body: JSON.stringify(this.state)
     };
-    fetch(`/api/auth/${action}`, req)
+    fetch('/api/auth/sign-up', req)
       .then(res => res.json())
       .then(result => {
         if (action === 'sign-up') {

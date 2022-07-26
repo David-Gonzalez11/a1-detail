@@ -7,6 +7,11 @@ export default class Home extends React.Component {
       username: '',
       password: ''
     };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+
   }
 
   render() {
