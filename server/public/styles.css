@@ -10,7 +10,7 @@
 }
 
 img {
-  width: 350px;
+  width: 200px;
 }
 
 .image-container {
@@ -24,4 +24,15 @@ p {
   color: blue;
   padding-left: 20px;
   font-family: sans-serif;
+  margin-top: 20%;
+}
+
+.button-box {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-primary {
+  width: 45%;
+  margin-left: 10px;
 }

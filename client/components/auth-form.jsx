@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 export default class AuthForm extends React.Component {
   constructor(props) {
     super(props);
@@ -12,6 +12,8 @@ export default class AuthForm extends React.Component {
   }
 
   handleChange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   handleSubmit(event) {
@@ -36,10 +38,54 @@ export default class AuthForm extends React.Component {
   }
 
   render() {
-
+    const { action } = this.props;
+    const { handleChange, handleSubmit } = this;
+    const alternateActionHref = action === 'sign-up'
+      ? '#sign-in'
+      : '#sign-up';
+    const alternatActionText = action === 'sign-up'
+      ? 'Sign in instead'
+      : 'Register now';
+    const submitButtonText = action === 'sign-up'
+      ? 'Register'
+      : 'Log In';
     return (
-      <form className="w-100" onSubmit={this.handleSubmit}>
-
+      <form className="w-100" onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <label htmlFor="username" className="form-label">
+            Username
+          </label>
+          <input
+            required
+            autoFocus
+            id="username"
+            type="text"
+            name="username"
+            onChange={handleChange}
+            className="form-control bg-light" />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="password" className="form-label">
+            Password
+          </label>
+          <input
+            required
+            id="password"
+            type="password"
+            name="password"
+            onChange={handleChange}
+            className="form-control bg-light" />
+        </div>
+        <div className="d-flex justify-content-between align-items-center">
+          <small>
+            <a className="text-muted" href={alternateActionHref}>
+              {alternatActionText}
+            </a>
+          </small>
+          <button type="submit" className="btn btn-primary">
+            {submitButtonText}
+          </button>
+        </div>
       </form>
     );
   }
