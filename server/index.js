@@ -34,18 +34,17 @@ const jsonMiddleware = express.json();
 app.use(jsonMiddleware);
 
 app.post('/api/auth/sign-up', (req, res, next) => {
-  const { password, email } = req.body;
+  const { password, email, name } = req.body;
   if (!email || !password) {
     throw new ClientError(400, 'email and password are required fields');
   }
 
-  /* your code starts here */
   argon2.hash(password)
     .then(hashedPassword => {
-      const text = `insert into "users" ("email", "hashedPassword")
-      values ($1, $2)
-      returning "email", "userId"`;
-      const values = [email, hashedPassword];
+      const text = `insert into "users" ("name", "email", "hashedPassword")
+      values ($1, $2, $3)
+      returning "name", "email", "userId"`;
+      const values = [name, email, hashedPassword];
       db.query(text, values)
         .then(result => {
           res.status(201).json(result.rows[0]);

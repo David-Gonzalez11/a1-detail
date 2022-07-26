@@ -47,12 +47,25 @@ export default class AuthForm extends React.Component {
     const styles = {
       backgroundColor: 'black',
       color: 'white',
-      height: '600px',
+      height: '800px',
       width: '100%'
     };
     return (
       <form className="w-100" style={styles} onSubmit={handleSubmit}>
        <h5 className='text-center pt-2'>Create Account</h5>
+
+        <div className="mb-3">
+          <label htmlFor="name" className="form-label">
+            Name
+          </label>
+          <input
+            required
+            id="name"
+            type="text"
+            name="name"
+            onChange={handleChange}
+            className="form-control bg-light" />
+        </div>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
             Email
