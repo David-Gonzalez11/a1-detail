@@ -57,7 +57,7 @@ export default class AuthForm extends React.Component {
 
     // };
     return (
-      <form className="w-100 container-fluid" onSubmit={handleSubmit}>
+      <form className="w-100 container-fluid border border-dark pt-3" onSubmit={handleSubmit}>
        <h5 className='text-center pt-2'>Create Account</h5>
 
         <div className="mb-3">
@@ -104,7 +104,7 @@ export default class AuthForm extends React.Component {
             </a>
           </small>
           <div className='text-center'></div>
-          <button type="submit" className="btn btn-primary col-md-6 btn-lg continue-btn uer-select-auto" href="#">
+          <button type="submit" className="btn btn-primary col-md-6 btn-lg continue-btn uer-select-auto mb-2" href="#">
             {submitButtonText}
           </button>
         </div>

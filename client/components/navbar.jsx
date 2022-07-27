@@ -8,7 +8,7 @@ export default function NavBar(props) {
   };
   return (
       <div className='row'>
-        <div className='nav-bar'>
+        <div className='nav-bar mb-2'>
         <i className="bi bi-justify bi--2xl" style={style}></i>
 
         </div>
