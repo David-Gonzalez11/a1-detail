@@ -57,7 +57,7 @@ export default class AuthForm extends React.Component {
 
     // };
     return (
-      <form className="w-100 container-fluid border border-dark pt-3" onSubmit={handleSubmit}>
+      <form className="w-100 container-fluid border  pt-3" onSubmit={handleSubmit}>
        <h5 className='text-center pt-2'>Create Account</h5>
 
         <div className="mb-3">

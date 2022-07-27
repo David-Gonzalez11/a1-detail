@@ -4,11 +4,11 @@ export default function NavBar(props) {
   const style = {
     fontSize: '2rem',
     color: 'white',
-    paddingLeft: '.5rem'
+    paddingLeft: '2rem'
   };
   return (
       <div className='row'>
-        <div className='nav-bar mb-2'>
+        <div className='nav-bar'>
         <i className="bi bi-justify bi--2xl" style={style}></i>
 
         </div>
