@@ -25,7 +25,7 @@ export default class AuthForm extends React.Component {
       },
       body: JSON.stringify(this.state)
     };
-    fetch('/api/auth/sign-up', req)
+    fetch(`/api/auth/${action}`, req)
       .then(res => res.json())
       .then(result => {
         if (action === 'sign-up') {
@@ -39,10 +39,16 @@ export default class AuthForm extends React.Component {
   render() {
     const { action } = this.props;
     const { handleChange, handleSubmit } = this;
-
+    const alternateActionHref = action === 'sign-up'
+      ? '#sign-in'
+      : '#sign-up';
+    // const alternatActionText = action === 'sign-up'
+    //   ? 'Sign in instead'
+    //   : 'Register now';
     const submitButtonText = action === 'sign-up'
-      ? 'Login'
-      : 'Continue';
+      ? 'Log In'
+      : 'Create';
+
     const styles = {
       backgroundColor: 'black',
       color: 'white',
@@ -91,8 +97,12 @@ export default class AuthForm extends React.Component {
           className="form-control bg-light" />
 </div>
         <div className="d-flex justify-content-between align-items-center">
-
-          <button type="submit" className="btn btn-primary continue-btn">
+          <small>
+            <a className="text-muted" href={alternateActionHref}>
+              {/* {alternatActionText} */}
+            </a>
+          </small>
+          <button type="submit" className="btn btn-primary continue-btn" href="#">
             {submitButtonText}
           </button>
         </div>

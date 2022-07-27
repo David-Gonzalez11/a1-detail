@@ -26,8 +26,8 @@ export default class Home extends React.Component {
         </div>
 
         <div className="button-box col-lg-12">
-          <a className="btn btn-primary" role="button" id='login' onClick={this.handleClick}>LOGIN</a>
-          <a className="btn btn-primary" role="button" id='signup' onClick={this.handleClick}>SIGN UP</a>
+          <a className="btn btn-primary" role="button" id='login' onClick={this.handleClick} href="#sign-in">LOGIN</a>
+          <a className="btn btn-primary" role="button" id='signup' onClick={this.handleClick} href="#sign-up">SIGN UP</a>
         </div>
       </>
 
