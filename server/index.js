@@ -7,6 +7,7 @@ const argon2 = require('argon2');
 const app = express();
 const publicPath = path.join(__dirname, 'public');
 const pg = require('pg');
+const jwtDecode = require('jsonwebtoken'); // eslint-disable-line
 
 const db = new pg.Pool({ // eslint-disable-line
   connectionString: process.env.DATABASE_URL,
@@ -57,5 +58,49 @@ app.post('/api/auth/sign-up', (req, res, next) => {
       console.error(err);
       next(err);
     });
+});
+
+app.post('/api/auth/sign-in', (req, res, next) => {
+  const { password, email, name } = req.body;
+  if (!email || !password) {
+    throw new ClientError(401, 'invalid login');
+  }
+
+  /* your code starts here */
+  const sql = ` select "userId",
+  "hashedPassword",
+  "email",
+  "name"
+  from "users"
+  where "email" = $1 and "name" = $2
+  `;
+  const values = [email, name];
+  db.query(sql, values)
+    .then(result => {
+      const rows = result.rows[0];
+      if (result.rows.length === 0) {
+        throw new ClientError(401, 'invalid login');
+      }
+      argon2.verify(result.rows[0].hashedPassword, password)
+        .then(isPassword => {
+          if (!isPassword) {
+            throw new ClientError(401, 'invalid login');
+          }
+          const payload = {
+            userId: rows.userId,
+            email: rows.email,
+            name: rows.name
+          };
+          const token = jwtDecode.sign(payload, process.env.TOKEN_SECRET);
+          res.status(201).json({
+            token,
+            user: payload
+          });
+        });
+    })
+    .catch(err => {
+      next(err);
+    });
+
 });
 app.use(errorMiddleware);

@@ -1,5 +1,4 @@
 
-// DONT THINK I NEED THIS YET BUT WILL KEEP HERE FOR REFERENCE
 // import React from 'react';
 // import Redirect from '../components/redirect';
 // import AuthForm from '../components/auth-form';
@@ -9,7 +8,7 @@
 
 //     const { user, route, handleSignIn } = this.context;
 
-//     if (user) return <Redirect to="" />;
+//     if (user) return <Redirect to="#" />;
 
 //     const welcomeMessage = route.path === 'sign-up'
 //       ? 'Please sign in to continue'

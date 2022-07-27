@@ -32,6 +32,7 @@ export default class AuthForm extends React.Component {
           window.location.hash = 'sign-up';
         } else if (result.user && result.token) {
           this.props.onSignIn(result);
+          window.location.hash = '#';
         }
       });
   }
@@ -46,19 +47,14 @@ export default class AuthForm extends React.Component {
     //   ? 'Sign in instead'
     //   : 'Register now';
     const submitButtonText = action === 'sign-up'
-      ? 'Log In'
-      : 'Create';
+      ? 'create'
+      : 'Login';
 
-    // const styles = {
-    //   backgroundColor: 'black',
-    //   color: 'white',
-    //   height: '800px',
-    //   width: '50%'
+    const headingtext = action === 'sign-in' ? 'Sign In' : 'Create Account';
 
-    // };
     return (
       <form className="w-100 container-fluid border  pt-3" onSubmit={handleSubmit}>
-       <h5 className='text-center pt-2'>Create Account</h5>
+       <h5 className='text-center pt-2'>{headingtext}</h5>
 
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
