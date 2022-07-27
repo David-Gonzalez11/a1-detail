@@ -49,14 +49,15 @@ export default class AuthForm extends React.Component {
       ? 'Log In'
       : 'Create';
 
-    const styles = {
-      backgroundColor: 'black',
-      color: 'white',
-      height: '800px',
-      width: '100%'
-    };
+    // const styles = {
+    //   backgroundColor: 'black',
+    //   color: 'white',
+    //   height: '800px',
+    //   width: '50%'
+
+    // };
     return (
-      <form className="w-100" style={styles} onSubmit={handleSubmit}>
+      <form className="w-100 container-fluid" onSubmit={handleSubmit}>
        <h5 className='text-center pt-2'>Create Account</h5>
 
         <div className="mb-3">
@@ -102,7 +103,8 @@ export default class AuthForm extends React.Component {
               {/* {alternatActionText} */}
             </a>
           </small>
-          <button type="submit" className="btn btn-primary continue-btn" href="#">
+          <div className='text-center'></div>
+          <button type="submit" className="btn btn-primary col-md-6 btn-lg continue-btn uer-select-auto" href="#">
             {submitButtonText}
           </button>
         </div>

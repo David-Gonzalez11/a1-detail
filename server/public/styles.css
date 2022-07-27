@@ -1,35 +1,36 @@
-.row {
+.container {
+  width: 900px;
+  height: 100vh;
+}
+
+/* * {
+  box-sizing: border-box;
+} */
+
+/* .row {
   display: flex;
   flex-wrap: nowrap;
-}
+} */
 
+/* img {
+  width: 200px;
+} */
 .nav-bar {
-  background-color: blue;
+  background-color: rgb(0, 94, 255);
   width: 100%;
   height: 60px;
-}
-
-img {
-  width: 200px;
 }
 
 .image-container {
   display: flex;
   justify-content: center;
   margin-top: 40%;
+  width: 100%;
 }
 
 p {
-  display: block;
-  color: blue;
-  padding-left: 20px;
+  padding-left: 30px;
   font-family: sans-serif;
-  margin-top: 20%;
-}
-
-.button-box {
-  text-align: center;
-  margin-top: 20px;
 }
 
 .btn-primary {
@@ -37,19 +38,11 @@ p {
   margin-left: 10px;
 }
 
-.hidden {
-  display: none;
-}
-
 .continue-btn {
-  margin-right: 6.5rem;
+  margin-right: 25%;
   margin-top: 7rem;
-}
-
-.continue-btn:hover {
-  margin-right: 6.5rem;
-  margin-top: 7rem;
-  cursor: pointer;
+  display: flex;
+  justify-content: center;
 }
 
 .mb-3 {
@@ -58,7 +51,7 @@ p {
   margin-left: 10px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (min-width: 768px) {
   .continue-btn {
     width: 100%;
     margin-left: 8rem;
@@ -67,5 +60,15 @@ p {
   .home-text {
     display: flex;
     justify-content: center;
+  }
+
+  p {
+    display: flex;
+    justify-content: center;
+  }
+
+  #login,
+  #signup {
+    margin-top: 50px;
   }
 }
