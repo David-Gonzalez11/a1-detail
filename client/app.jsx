@@ -5,6 +5,10 @@ import NavBar from './components/navbar';
 import parseRoute from './lib/parseRoute';
 import jwtDecode from 'jwt-decode';
 import NotFound from './components/not-found';
+import AppContext from './lib/app-context';
+import Test from './components/main-page';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -22,11 +26,7 @@ export default class App extends React.Component {
         route: parseRoute(window.location.hash)
       });
     });
-    /**
-     * Listen for hash change events on the window object
-     * Each time the window.location.hash changes, parse
-     * it with the parseRoute() function and update state
-     */
+
     const token = window.localStorage.getItem('react-context-jwt');
     const user = token ? jwtDecode(token) : null;
     this.setState({ user, isAuthorizing: false });
@@ -42,6 +42,7 @@ export default class App extends React.Component {
   handleSignOut() {
     window.localStorage.removeItem('react-context-jwt');
     this.setState({ user: null });
+    window.location.hash = '#';
   }
 
   renderPage() {
@@ -55,15 +56,27 @@ export default class App extends React.Component {
     if (route.path === 'sign-in') {
       return <AuthForm action={route.path} onSignIn={this.handleSignIn}/>;
     }
+    if (route.path === 'main-page') {
+      return <Test />;
+    }
     return <NotFound />;
+
   }
 
   render() {
+    if (this.state.isAuthorizing) return null;
+    const { user } = this.state;
+    const { handleSignOut } = this;
+    const contextValue = { user, handleSignOut };
     return (
+    <AppContext.Provider value={contextValue}>
+
       <>
         <NavBar />
         {this.renderPage()}
       </>
+      </AppContext.Provider>
+
     );
   }
 }

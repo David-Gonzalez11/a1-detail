@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import AppContext from '../lib/app-context';
 export default class AuthForm extends React.Component {
   constructor(props) {
     super(props);
@@ -17,6 +17,7 @@ export default class AuthForm extends React.Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
     const { action } = this.props;
     const req = {
       method: 'POST',
@@ -29,10 +30,10 @@ export default class AuthForm extends React.Component {
       .then(res => res.json())
       .then(result => {
         if (action === 'sign-up') {
-          window.location.hash = 'sign-up';
+          window.location.hash = 'sign-in';
         } else if (result.user && result.token) {
           this.props.onSignIn(result);
-          window.location.hash = '#';
+          window.location.hash = '#main-page';
         }
       });
   }
@@ -41,13 +42,10 @@ export default class AuthForm extends React.Component {
     const { action } = this.props;
     const { handleChange, handleSubmit } = this;
     const alternateActionHref = action === 'sign-up'
-      ? '#sign-in'
-      : '#sign-up';
-    // const alternatActionText = action === 'sign-up'
-    //   ? 'Sign in instead'
-    //   : 'Register now';
+      ? '#sign-up'
+      : '#sign-in';
     const submitButtonText = action === 'sign-up'
-      ? 'create'
+      ? 'Create'
       : 'Login';
 
     const headingtext = action === 'sign-in' ? 'Sign In' : 'Create Account';
@@ -96,11 +94,10 @@ export default class AuthForm extends React.Component {
         <div className="d-flex justify-content-between align-items-center">
           <small>
             <a className="text-muted" href={alternateActionHref}>
-              {/* {alternatActionText} */}
             </a>
           </small>
           <div className='text-center'></div>
-          <button type="submit" className="btn btn-primary col-md-6 btn-lg continue-btn uer-select-auto mb-2" href="#">
+          <button type="submit" className="btn btn-primary col-md-6 btn-lg continue-btn uer-select-auto mb-2" href="#main-page">
             {submitButtonText}
           </button>
         </div>
@@ -109,3 +106,4 @@ export default class AuthForm extends React.Component {
     );
   }
 }
+AuthForm.contextType = AppContext;
