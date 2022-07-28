@@ -5,6 +5,7 @@ import NavBar from './components/navbar';
 import parseRoute from './lib/parseRoute';
 import jwtDecode from 'jwt-decode';
 import NotFound from './components/not-found';
+// import AppContext from './lib/app-context';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -59,11 +60,19 @@ export default class App extends React.Component {
   }
 
   render() {
+    if (this.state.isAuthorizing) return null;
+    // const { user, route } = this.state;
+    // const { handleSignIn, handleSignOut } = this;
+    // const contextValue = { user, route, handleSignIn, handleSignOut };
     return (
+    // <AppContext.Provider value={contextValue}>
+
       <>
         <NavBar />
         {this.renderPage()}
       </>
+      // </AppContext.Provider>
+
     );
   }
 }
