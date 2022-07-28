@@ -6,6 +6,7 @@ import parseRoute from './lib/parseRoute';
 import jwtDecode from 'jwt-decode';
 import NotFound from './components/not-found';
 import AppContext from './lib/app-context';
+import Test from './components/main-page';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -53,7 +54,11 @@ export default class App extends React.Component {
     if (route.path === 'sign-in') {
       return <AuthForm action={route.path} onSignIn={this.handleSignIn}/>;
     }
+    if (route.path === 'main-page') {
+      return <Test />;
+    }
     return <NotFound />;
+
   }
 
   render() {

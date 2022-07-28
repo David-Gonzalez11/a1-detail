@@ -34,7 +34,7 @@ export default class AuthForm extends React.Component {
           window.location.hash = 'sign-in';
         } else if (result.user && result.token) {
           this.props.onSignIn(result);
-          window.location.hash = '#';
+          window.location.hash = '#main-page';
         }
       });
   }
@@ -45,12 +45,9 @@ export default class AuthForm extends React.Component {
     const alternateActionHref = action === 'sign-up'
       ? '#sign-up'
       : '#sign-in';
-    // const alternatActionText = action === 'sign-up'
-    //   ? 'Sign in instead'
-    //   : 'Register now';
     const submitButtonText = action === 'sign-up'
-      ? 'Login'
-      : 'create';
+      ? 'Create'
+      : 'Login';
 
     const headingtext = action === 'sign-in' ? 'Sign In' : 'Create Account';
 
@@ -98,11 +95,10 @@ export default class AuthForm extends React.Component {
         <div className="d-flex justify-content-between align-items-center">
           <small>
             <a className="text-muted" href={alternateActionHref}>
-              {/* {alternatActionText} */}
             </a>
           </small>
           <div className='text-center'></div>
-          <button type="submit" className="btn btn-primary col-md-6 btn-lg continue-btn uer-select-auto mb-2" href="#">
+          <button type="submit" className="btn btn-primary col-md-6 btn-lg continue-btn uer-select-auto mb-2" href="#main-page">
             {submitButtonText}
           </button>
         </div>
