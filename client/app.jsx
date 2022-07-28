@@ -7,6 +7,8 @@ import jwtDecode from 'jwt-decode';
 import NotFound from './components/not-found';
 import AppContext from './lib/app-context';
 import Test from './components/main-page';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export default class App extends React.Component {
   constructor(props) {

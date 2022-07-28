@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import AppContext from '../lib/app-context';
 export default class AuthForm extends React.Component {
   constructor(props) {

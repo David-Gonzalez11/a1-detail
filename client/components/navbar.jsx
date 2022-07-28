@@ -1,7 +1,5 @@
 import React from 'react';
-import 'bootstrap-icons/font/bootstrap-icons.css';
 import Container from 'react-bootstrap/Container';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
