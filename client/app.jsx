@@ -5,7 +5,7 @@ import NavBar from './components/navbar';
 import parseRoute from './lib/parseRoute';
 import jwtDecode from 'jwt-decode';
 import NotFound from './components/not-found';
-// import AppContext from './lib/app-context';
+import AppContext from './lib/app-context';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -39,6 +39,7 @@ export default class App extends React.Component {
   handleSignOut() {
     window.localStorage.removeItem('react-context-jwt');
     this.setState({ user: null });
+    window.location.hash = '#';
   }
 
   renderPage() {
@@ -57,17 +58,17 @@ export default class App extends React.Component {
 
   render() {
     if (this.state.isAuthorizing) return null;
-    // const { user, route } = this.state;
-    // const { handleSignIn, handleSignOut } = this;
-    // const contextValue = { user, route, handleSignIn, handleSignOut };
+    const { user } = this.state;
+    const { handleSignOut } = this;
+    const contextValue = { user, handleSignOut };
     return (
-    // <AppContext.Provider value={contextValue}>
+    <AppContext.Provider value={contextValue}>
 
       <>
         <NavBar />
         {this.renderPage()}
       </>
-      // </AppContext.Provider>
+      </AppContext.Provider>
 
     );
   }

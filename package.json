@@ -12,6 +12,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@react-google-maps/api": "^2.12.1",
     "argon2": "^0.28.5",
     "bootstrap": "^5.2.0",
     "bootstrap-icons": "^1.9.1",
@@ -22,7 +23,8 @@
     "pg": "^8.7.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.4.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-geocode": "^0.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
