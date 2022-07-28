@@ -18,6 +18,7 @@ export default class AuthForm extends React.Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
     const { action } = this.props;
     const req = {
       method: 'POST',
@@ -42,14 +43,14 @@ export default class AuthForm extends React.Component {
     const { action } = this.props;
     const { handleChange, handleSubmit } = this;
     const alternateActionHref = action === 'sign-up'
-      ? '#sign-in'
-      : '#sign-up';
+      ? '#sign-up'
+      : '#sign-in';
     // const alternatActionText = action === 'sign-up'
     //   ? 'Sign in instead'
     //   : 'Register now';
     const submitButtonText = action === 'sign-up'
-      ? 'create'
-      : 'Login';
+      ? 'Login'
+      : 'create';
 
     const headingtext = action === 'sign-in' ? 'Sign In' : 'Create Account';
 

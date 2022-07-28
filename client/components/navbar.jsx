@@ -7,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import AppContext from '../lib/app-context';
 import Redirect from '../components/redirect';
-import AuthForm from './auth-form';
+// import AuthForm from './auth-form';
 
 export default class NavBar extends React.Component {
   render() {
@@ -16,7 +16,7 @@ export default class NavBar extends React.Component {
     const user = this.context;
     // console.log(user);
 
-    if (user) return <Redirect to="#" />;
+    if (user) return <Redirect to="" />;
 
     return (
 
@@ -45,11 +45,11 @@ export default class NavBar extends React.Component {
           </Container>
         </Navbar>
       ))}
-        {user === null &&
+        {/* {user === null &&
           <>
            <AuthForm />
           </>
-        }
+        } */}
 </>
 
     );
