@@ -3,18 +3,18 @@ import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
 const containerStyle = {
   width: '100%',
-  height: '1000px'
+  height: '550px'
 };
 
 const center = {
-  lat: -3.745,
-  lng: -38.523
+  lat: 33.684593,
+  lng: -117.826467
 };
 
 function MyComponent() {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: (process.env.KEY)
+    googleMapsApiKey: ('AIzaSyAo0By35tJCwdWM5mMSY-o2hQKmdOQ3WoM')
   });
 
   const [map, setMap] = React.useState(null);
@@ -34,12 +34,16 @@ function MyComponent() {
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
-      zoom={10}
+      zoom={14}
       onLoad={onLoad}
       onUnmount={onUnmount}
+
     >
+
       { /* Child components, such as markers, info windows, etc. */}
-      <></>
+      <>
+
+      </>
     </GoogleMap>
       )
     : <></>;

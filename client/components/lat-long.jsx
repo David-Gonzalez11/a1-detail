@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Apps extends Component {
+export default class Geocode extends Component {
   constructor(props) {
     super(props);
     this.state = {

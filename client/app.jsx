@@ -6,14 +6,12 @@ import parseRoute from './lib/parseRoute';
 import jwtDecode from 'jwt-decode';
 import NotFound from './components/not-found';
 import AppContext from './lib/app-context';
-import Test from './components/main-page';
+import Service from './components/Service';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import Main from './components/main';
-import AnyReactComponent from './components/google-maps';
-import Apps from './components/lat-long';
-import Geocode from 'react-geocode';
-
+import MyComponent from './components/google-maps';
+import Geocode from './components/lat-long';
+import Appointments from './components/appointmentModal';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -50,6 +48,7 @@ export default class App extends React.Component {
   }
 
   renderPage() {
+
     const { route } = this.state;
     if (route.path === '') {
       return <Home />;
@@ -61,14 +60,16 @@ export default class App extends React.Component {
       return <AuthForm action={route.path} onSignIn={this.handleSignIn}/>;
     }
     if (route.path === 'main-page') {
-      return <Main />;
+      return <MyComponent />;
     }
     if (route.path === 'services') {
       return (
         <>
-      <AnyReactComponent />
-      <Test />
-      <Apps />
+
+      <MyComponent />
+      <Appointments />
+      <Service />
+      <Geocode />
       </>
 
       );
