@@ -14,7 +14,7 @@ const center = {
 function MyComponent() {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: 'YOUR_API_KEY'
+    googleMapsApiKey: 'AIzaSyAo0By35tJCwdWM5mMSY-o2hQKmdOQ3WoM'
   });
 
   const [map, setMap] = React.useState(null);
@@ -29,7 +29,8 @@ function MyComponent() {
     setMap(null);
   }, []);
 
-  return isLoaded ? (
+  return isLoaded
+    ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
@@ -40,7 +41,8 @@ function MyComponent() {
       { /* Child components, such as markers, info windows, etc. */}
       <></>
     </GoogleMap>
-  ) : <></>;
+      )
+    : <></>;
 }
 
 export default React.memo(MyComponent);

@@ -11,6 +11,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Main from './components/main';
 import AnyReactComponent from './components/google-maps';
+import Apps from './components/lat-long';
+import Geocode from 'react-geocode';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -66,6 +68,7 @@ export default class App extends React.Component {
         <>
       <AnyReactComponent />
       <Test />
+      <Apps />
       </>
 
       );

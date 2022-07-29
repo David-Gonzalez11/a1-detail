@@ -15,7 +15,7 @@ export default class Test extends React.Component {
             placement={placement}
             overlay={
               <Popover id={`popover-positioned-${placement}`}>
-                <Popover.Header as="h3">{`Popover ${placement}`}</Popover.Header>
+                <Popover.Header as="h3">Exterior Clean</Popover.Header>
                 <Popover.Body>
                   <p className='fs-4'> 25 to 35 minutes </p>
 
@@ -42,18 +42,18 @@ export default class Test extends React.Component {
               placement={placement}
               overlay={
                 <Popover id={`popover-positioned-${placement}`}>
-                  <Popover.Header as="h3">{`Popover ${placement}`}</Popover.Header>
+                  <Popover.Header as="h3">Full Detail</Popover.Header>
                   <Popover.Body>
                     <p className='fs-4'>80 to 90 minutes</p>
 
                     <i className="bi bi-circle-fill"> Exterior hand Wash</i><br />
                     <i className="bi bi-circle-fill"> Exterior window clean</i><br />
                     <i className="bi bi-circle-fill"> Clean tires and apply tire dressing</i>
-                    <i className="bi bi-circle-fill">Interior Window Clean</i><br />
-                    <i className="bi bi-circle-fill">Interior Double vacuum</i><br />
-                    <i className="bi bi-circle-fill">Paste Wax</i><br />
-                    <i className="bi bi-circle-fill">Clay Bar and Wax</i><br />
-                    <i className="bi bi-circle-fill">Shampoo Floor Mats</i><br />
+                    <i className="bi bi-circle-fill"> Interior Window Clean</i><br />
+                    <i className="bi bi-circle-fill"> Interior Double vacuum</i><br />
+                    <i className="bi bi-circle-fill"> Paste Wax</i><br />
+                    <i className="bi bi-circle-fill"> Clay Bar and Wax</i><br />
+                    <i className="bi bi-circle-fill"> Shampoo Floor Mats</i><br />
 
                   </Popover.Body>
                 </Popover>
@@ -75,15 +75,15 @@ export default class Test extends React.Component {
               placement={placement}
               overlay={
                 <Popover id={`popover-positioned-${placement}`}>
-                  <Popover.Header as="h3">{`Popover ${placement}`}</Popover.Header>
+                  <Popover.Header as="h3">Basic Wash</Popover.Header>
                   <Popover.Body>
                     <p className='fs-4'>40 to 50 minutes</p>
 
                     <i className="bi bi-circle-fill"> Exterior hand Wash</i><br />
                     <i className="bi bi-circle-fill"> Exterior window clean</i><br />
                     <i className="bi bi-circle-fill"> Clean tires and apply tire dressing</i>
-                    <i className="bi bi-circle-fill">Interior Window Clean</i><br />
-                    <i className="bi bi-circle-fill">Paste Wax</i><br />
+                    <i className="bi bi-circle-fill"> Interior Window Clean</i><br />
+                    <i className="bi bi-circle-fill"> Paste Wax</i><br />
 
                   </Popover.Body>
                 </Popover>
@@ -105,15 +105,15 @@ export default class Test extends React.Component {
               placement={placement}
               overlay={
                 <Popover id={`popover-positioned-${placement}`}>
-                  <Popover.Header as="h3">{`Popover ${placement}`}</Popover.Header>
+                  <Popover.Header as="h3">Mini Detail</Popover.Header>
                   <Popover.Body>
                     <p className='fs-4'>40 to 50 minutes</p>
 
                     <i className="bi bi-circle-fill"> Exterior hand Wash</i><br />
                     <i className="bi bi-circle-fill"> Exterior window clean</i><br />
                     <i className="bi bi-circle-fill"> Clean tires and apply tire dressing</i>
-                    <i className="bi bi-circle-fill">Interior Window Clean</i><br />
-                    <i className="bi bi-circle-fill">Paste Wax</i><br />
+                    <i className="bi bi-circle-fill"> Interior Window Clean</i><br />
+                    <i className="bi bi-circle-fill"> Paste Wax</i><br />
 
                   </Popover.Body>
                 </Popover>
