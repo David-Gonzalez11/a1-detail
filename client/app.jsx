@@ -9,6 +9,8 @@ import AppContext from './lib/app-context';
 import Test from './components/main-page';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import Main from './components/main';
+import AnyReactComponent from './components/google-maps';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -57,7 +59,16 @@ export default class App extends React.Component {
       return <AuthForm action={route.path} onSignIn={this.handleSignIn}/>;
     }
     if (route.path === 'main-page') {
-      return <Test />;
+      return <Main />;
+    }
+    if (route.path === 'services') {
+      return (
+        <>
+      <AnyReactComponent />
+      <Test />
+      </>
+
+      );
     }
     return <NotFound />;
 
