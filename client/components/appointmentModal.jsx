@@ -8,7 +8,6 @@ export default class Appointments extends React.Component {
       username: '',
       password: ''
     };
-    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   // handleSubmit(event) {

@@ -69,7 +69,7 @@ export default class App extends React.Component {
       <MyComponent />
       <Appointments />
       <Service />
-      <Geocode />
+      {/* <Geocode /> */}
       </>
 
       );
