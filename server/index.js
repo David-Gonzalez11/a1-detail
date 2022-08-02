@@ -1,3 +1,4 @@
+// eslint-disable-line
 require('dotenv/config');
 const path = require('path');
 const express = require('express');
@@ -7,8 +8,8 @@ const argon2 = require('argon2');
 const app = express();
 const publicPath = path.join(__dirname, 'public');
 const pg = require('pg');
-const jwtDecode = require('jsonwebtoken'); // eslint-disable-line
-
+const jwtDecode = require('jsonwebtoken');
+const auth = require('./authorization-middleware');
 const db = new pg.Pool({ // eslint-disable-line
   connectionString: process.env.DATABASE_URL,
   ssl: {
@@ -33,7 +34,6 @@ app.listen(process.env.PORT, () => {
 const jsonMiddleware = express.json();
 
 app.use(jsonMiddleware);
-
 app.post('/api/auth/sign-up', (req, res, next) => {
   const { password, email, name } = req.body;
   if (!email || !password) {
@@ -101,6 +101,22 @@ app.post('/api/auth/sign-in', (req, res, next) => {
     .catch(err => {
       next(err);
     });
+});
+app.use(auth);
+app.post('/api/appointments/', (req, res, next) => {
+  const { name, address, appointmentScheduled, city } = req.body;
+  if (!name || !city || !address) {
+    throw new ClientError(401, 'All fields are required');
+  }
+  const userId = req.user.userId;
 
+  const sql = `insert into "appointments" ("name", "address", "city", "appointmentScheduled", "userId")
+values ($1, $2, $3, $4, $5)
+ returning *`;
+  const values = [name, address, city, appointmentScheduled, userId];
+  db.query(sql, values)
+    .then(result => {
+      res.status(201).json(result.rows[0]);
+    }).catch(err => next(err));
 });
 app.use(errorMiddleware);

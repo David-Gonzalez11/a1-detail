@@ -5,11 +5,39 @@ export default class Appointments extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      password: ''
+      name: '',
+      address: '',
+      city: ''
     };
   }
 
+  handleChange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const { action } = this.props;
+    const req = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(this.state)
+    };
+    fetch('/api/appointments/:userId', req)
+      .then(res => res.json())
+      .then(result => {
+        console.log('result:', result);
+        // if (action === 'sign-up') {
+        //   window.location.hash = 'sign-in';
+        // } else if (result.user && result.token) {
+        //   this.props.onSignIn(result);
+        //   window.location.hash = '#main-page';
+        // }
+      });
+  }
   // handleSubmit(event) {
   //   event.preventDefault();
   //   const { action } = this.props;

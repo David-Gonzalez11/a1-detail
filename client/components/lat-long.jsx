@@ -9,15 +9,13 @@ export default class Geocode extends Component {
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(function (position) {
-      console.log('position', position);
+      // console.log(position);
     });
   }
 
   render() {
     return (
-      <div>
-        I am here1
-      </div>
+     <></>
     );
   }
 }

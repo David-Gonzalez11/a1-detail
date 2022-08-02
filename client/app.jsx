@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import MyComponent from './components/google-maps';
 import Geocode from './components/lat-long';
-import Appointments from './components/appointmentModal';
+// import Appointments from './components/appointmentModal';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -54,7 +54,7 @@ export default class App extends React.Component {
       return <Home />;
     }
     if (route.path === 'sign-up') {
-      return <AuthForm action={route.patth} onSignIn={this.handleSignIn}/>;
+      return <AuthForm action={route.path} onSignIn={this.handleSignIn}/>;
     }
     if (route.path === 'sign-in') {
       return <AuthForm action={route.path} onSignIn={this.handleSignIn}/>;
@@ -67,9 +67,9 @@ export default class App extends React.Component {
         <>
 
       <MyComponent />
-      <Appointments />
+      {/* <Appointments /> */}
       <Service />
-      {/* <Geocode /> */}
+      <Geocode />
       </>
 
       );

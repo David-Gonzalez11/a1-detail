@@ -65,6 +65,7 @@ export default class AuthForm extends React.Component {
             name="name"
             onChange={handleChange}
             className="form-control bg-light" />
+
         </div>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
@@ -78,7 +79,6 @@ export default class AuthForm extends React.Component {
             onChange={handleChange}
             className="form-control bg-light" />
         </div>
-
         <div className="mb-3">
         <label htmlFor="Password" className="form-label">
           Password
@@ -97,11 +97,10 @@ export default class AuthForm extends React.Component {
             </a>
           </small>
           <div className='text-center'></div>
-          <button type="submit" className="btn btn-primary col-md-6 btn-lg continue-btn uer-select-auto mb-2" href="#main-page">
+          <button type="submit" className="btn btn-primary col-md-6 btn-lg continue-btn uer-select-auto mt-3" href="#main-page">
             {submitButtonText}
           </button>
         </div>
-
       </form>
     );
   }

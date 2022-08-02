@@ -1,8 +1,10 @@
 import React from 'react';
 // import Geocode from './lat-long';
-import { MarkerF, InfoWindowF } from '@react-google-maps/api';
+import { MarkerF, InfoWindowF, GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import ScheduleAppointment from './createAppointment';
 
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+// import Appointments from './appointmentModal';
+// import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
 // const Marker = options => {
 //   const [marker, setMarker] = React.useState();
@@ -29,12 +31,12 @@ import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
 const containerStyle = {
   width: '100%',
-  height: '550px'
+  height: '580px'
 };
 
 const center = {
-  lat: 33.684593,
-  lng: -117.826467
+  lat: 33.7678851,
+  lng: -117.8907182
 };
 const markerStyle = {
   position: 'absolute',
@@ -44,14 +46,14 @@ const markerStyle = {
 };
 
 const position = {
-  lat: 33.7343431,
-  lng: -117.8092504
+  lat: 33.7678851,
+  lng: -117.8907182
 };
 
 function MyComponent() {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: (process.env.API_KEY)
+    googleMapsApiKey: 'AIzaSyAb5Anb2S-5kDpIkDqo16PNLrBqJVpY__o'
   });
 
   const [map, setMap] = React.useState(null);
@@ -74,17 +76,14 @@ function MyComponent() {
       zoom={14}
       onLoad={onLoad}
       onUnmount={onUnmount}
-
     >
-
       { /* Child components, such as markers, info windows, etc. */}
       <>
           {/* onClick={props.onToggleOpen} */}
           <MarkerF style={markerStyle} position={position} >
-            {/* <InfoWindowF onCloseClick={}>
-              <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Wash me Now</button>
-
-          </InfoWindowF> */}
+           <InfoWindowF onCloseClick="" position={position}>
+            <ScheduleAppointment />
+                     </InfoWindowF>
           </MarkerF>
       </>
     </GoogleMap>
