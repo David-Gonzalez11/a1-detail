@@ -53,7 +53,7 @@ const position = {
 function MyComponent() {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: 'AIzaSyAb5Anb2S-5kDpIkDqo16PNLrBqJVpY__o'
+    googleMapsApiKey: (process.env.API_KEY)
   });
 
   const [map, setMap] = React.useState(null);

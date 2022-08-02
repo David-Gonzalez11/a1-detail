@@ -6,8 +6,7 @@ export default class ScheduleAppointment extends React.Component {
       city: '',
       address: '',
       name: '',
-      appointments: [],
-      isClicked: false
+      appointmentScheduled: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -16,8 +15,6 @@ export default class ScheduleAppointment extends React.Component {
   handleChange(event) {
     const name = event.target.name;
     const value = event.target.value;
-    console.log('name', name);
-    console.log('value', value);
 
     this.setState({ [name]: value });
   }
@@ -27,7 +24,6 @@ export default class ScheduleAppointment extends React.Component {
       alert('all fields are required');
       return;
     }
-    event.preventDefault();
     const req = {
       method: 'POST',
       headers: {
@@ -35,6 +31,7 @@ export default class ScheduleAppointment extends React.Component {
         'X-Access-Token': localStorage.getItem('react-context-jwt')
 
       },
+
       body: JSON.stringify(this.state)
     };
     fetch('/api/appointments/', req)
@@ -44,14 +41,15 @@ export default class ScheduleAppointment extends React.Component {
         this.setState({
           name,
           address: event.target.value,
-          city: event.target.value
+          city: event.target.value,
+          appointmentScheduled: event.target.value
         });
-
       });
 
   }
 
   render() {
+
     return <>
       <div className="accordion" id="accordionExample">
         <div className="accordion-item">
@@ -66,25 +64,32 @@ export default class ScheduleAppointment extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                   <div className="mb-1">
                     <label htmlFor="name" className="col-form-label">Name</label>
-                    <input type="text" className="form-control" id="name" onChange={this.handleChange} />
+                    <input type="text" className="form-control" id="name" onChange={this.handleChange} name="name"/>
                   </div>
                   <div className="mb-1">
                     <label htmlFor="recipient-address" className="col-form-label">Address</label>
-                    <input type="text" className="form-control" id="recipient-address" onChange={this.handleChange} />
+                    <input type="text" className="form-control" id="recipient-address" onChange={this.handleChange} name="address"/>
                   </div>
                   <div className="mb-1">
                     <label htmlFor="city" className="col-form-label">City</label>
-                    <textarea className="form-control" id="city" onChange={this.handleChange}></textarea>
+                    <textarea className="form-control" id="city" onChange={this.handleChange} name="city"></textarea>
+                  </div>
+
+                  <div>
+                    <label className='pt-3' htmlFor='date-time'>Please Select Date and Time:</label>
+                    <div>
+                      <input name="appointmentScheduled" onChange={this.handleChange} type="datetime-local"></input>
+                   </div>
                   </div>
                   <div className="text-center d-grid gap-2">
                     <button type="submit" className="btn btn-secondary">Submit</button>
-
                   </div>
                 </form>
               </strong>
             </div>
           </div>
-        </div>      </div>
+        </div>
+         </div>
     </>;
   }
 }

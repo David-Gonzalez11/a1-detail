@@ -104,7 +104,7 @@ app.post('/api/auth/sign-in', (req, res, next) => {
 });
 app.use(auth);
 app.post('/api/appointments/', (req, res, next) => {
-  const { name, address, appointmentScheduled, city } = req.body;
+  const { name, address, city, appointmentScheduled } = req.body;
   if (!name || !city || !address) {
     throw new ClientError(401, 'All fields are required');
   }
