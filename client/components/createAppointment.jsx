@@ -1,4 +1,6 @@
 import React from 'react';
+import AppContext from '../lib/app-context';
+
 export default class ScheduleAppointment extends React.Component {
   constructor(props) {
     super(props);
@@ -7,7 +9,8 @@ export default class ScheduleAppointment extends React.Component {
       address: '',
       name: '',
       appointmentScheduled: '',
-      service: ''
+      service: '',
+      isClicked: true
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -38,7 +41,6 @@ export default class ScheduleAppointment extends React.Component {
     fetch('/api/appointments/', req)
       .then(res => res.json())
       .then(result => {
-        console.log(result);
         this.setState({
           name,
           address: event.target.value,
@@ -47,11 +49,9 @@ export default class ScheduleAppointment extends React.Component {
           service: event.target.value
         });
       });
-
   }
 
   render() {
-
     return <>
       <div className="accordion" id="accordionExample">
         <div className="accordion-item">
@@ -103,3 +103,4 @@ export default class ScheduleAppointment extends React.Component {
     </>;
   }
 }
+ScheduleAppointment.contextType = AppContext;
