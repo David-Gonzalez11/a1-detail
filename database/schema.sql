@@ -19,6 +19,7 @@ CREATE TABLE "public"."appointments" (
   "address" TEXT NOT NULL,
   "city" TEXT NOT NULL,
   "userId" integer NOT NULL,
+  "service" text not null,
   "appointmentScheduled" TIMESTAMPTZ NOT NULL,
   "createdAt" TIMESTAMPTZ NOT NULL default now(),
   CONSTRAINT "appointments_pk" PRIMARY KEY ("appointmentId")

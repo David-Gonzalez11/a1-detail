@@ -8,7 +8,10 @@ import AppContext from '../lib/app-context';
 
 export default class NavBar extends React.Component {
   render() {
-
+    const style = {
+      width: '100px',
+      marginLeft: '1rem'
+    };
     const { user, handleSignOut } = this.context;
     // if (user) return <Redirect to="" />;
     return (
@@ -18,6 +21,7 @@ export default class NavBar extends React.Component {
           {[false].map(expand => (
             <Navbar key={expand} bg="primary" expand={expand} className="mb-3">
               <Container fluid>
+                <a href="#main-page"><img src="https://media.istockphoto.com/vectors/car-wash-cartoon-symbol-vector-illustration-vector-id1282310388?k=20&m=1282310388&s=612x612&w=0&h=mC7n35uNLQkSYWGQjyAsN8oU8MO25U3Me_6y9iq-duw=" className="main-image" style={style}/></a>
                 <Navbar.Brand href="#" />
                 <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
                 <Navbar.Offcanvas

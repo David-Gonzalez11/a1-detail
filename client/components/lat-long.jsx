@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Apps extends Component {
+export default class Geocode extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -9,13 +9,13 @@ export default class Apps extends Component {
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(function (position) {
+      // console.log(position);
     });
   }
 
   render() {
     return (
-      <div>
-      </div>
+     <></>
     );
   }
 }

@@ -21,9 +21,11 @@
     "google-map-react": "^2.2.0",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "3.1.2",
+    "mdb-ui-kit": "^4.4.0",
     "pg": "^8.7.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.4.0",
+    "react-datetime-picker": "^3.5.0",
     "react-dom": "^18.2.0",
     "react-geocode": "^0.2.3"
   },
