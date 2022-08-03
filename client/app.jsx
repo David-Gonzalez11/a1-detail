@@ -72,7 +72,6 @@ export default class App extends React.Component {
       <Service />
       <Geocode />
       </>
-
       );
     }
     return <NotFound />;
