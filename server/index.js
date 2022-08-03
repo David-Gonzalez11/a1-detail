@@ -104,16 +104,16 @@ app.post('/api/auth/sign-in', (req, res, next) => {
 });
 app.use(auth);
 app.post('/api/appointments/', (req, res, next) => {
-  const { name, address, city, appointmentScheduled } = req.body;
+  const { name, address, city, appointmentScheduled, service } = req.body;
   if (!name || !city || !address) {
     throw new ClientError(401, 'All fields are required');
   }
   const userId = req.user.userId;
 
-  const sql = `insert into "appointments" ("name", "address", "city", "appointmentScheduled", "userId")
-values ($1, $2, $3, $4, $5)
+  const sql = `insert into "appointments" ("name", "address", "city", "appointmentScheduled", "userId", "service")
+values ($1, $2, $3, $4, $5, $6)
  returning *`;
-  const values = [name, address, city, appointmentScheduled, userId];
+  const values = [name, address, city, appointmentScheduled, userId, service];
   db.query(sql, values)
     .then(result => {
       res.status(201).json(result.rows[0]);

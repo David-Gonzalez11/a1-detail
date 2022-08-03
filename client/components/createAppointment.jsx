@@ -6,7 +6,8 @@ export default class ScheduleAppointment extends React.Component {
       city: '',
       address: '',
       name: '',
-      appointmentScheduled: ''
+      appointmentScheduled: '',
+      service: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -42,7 +43,8 @@ export default class ScheduleAppointment extends React.Component {
           name,
           address: event.target.value,
           city: event.target.value,
-          appointmentScheduled: event.target.value
+          appointmentScheduled: event.target.value,
+          service: event.target.value
         });
       });
 
@@ -80,8 +82,16 @@ export default class ScheduleAppointment extends React.Component {
                     <div>
                       <input name="appointmentScheduled" onChange={this.handleChange} type="datetime-local"></input>
                    </div>
+                   <label htmlFor='service' className='pt-3'>Please select a service:</label> <br />
+                   <select name="service" onChange={this.handleChange} value={this.state.value}>
+                    <option>--Service--</option>
+                   <option name="Exterior Clean" onChange={this.handleChange}>Exterior Clean</option>
+                      <option name="Basic Wash" onChange={this.handleChange} value={this.state.service}>Basic Wash</option>
+                      <option name="Mini Detail" onChange={this.handleChange} value={this.state.service}>Mini Detail</option>
+                      <option name="Full Detail" onChange={this.handleChange} value={this.state.service}>Full Detail</option>
+                   </select>
                   </div>
-                  <div className="text-center d-grid gap-2">
+                  <div className="text-center d-grid gap-2 pt-2">
                     <button type="submit" className="btn btn-secondary">Submit</button>
                   </div>
                 </form>
