@@ -15,7 +15,7 @@ export default class UserAppointments extends React.Component {
     fetch('/api/appointments', {
       headers: {
         'Content-Type': 'application/json',
-        'X-Access-Token': localStorage.getItem('react-context-jwt')
+        'X-Access-Token': localStorage.getItem('authToken-jwt')
       }
     })
       .then(res =>
