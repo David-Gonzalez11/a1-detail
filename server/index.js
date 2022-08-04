@@ -128,7 +128,6 @@ app.get('/api/appointments', (req, res, next) => {
   const params = [userId];
   db.query(sql, params)
     .then(result => {
-      // console.log(result);
       res.json(result.rows);
     }).catch(err => next(err));
 });
