@@ -1,6 +1,5 @@
 import React from 'react';
 import AppContext from '../lib/app-context';
-
 export default class ScheduleAppointment extends React.Component {
   constructor(props) {
     super(props);
@@ -14,6 +13,14 @@ export default class ScheduleAppointment extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.toggleClick = this.toggleClick.bind(this);
+  }
+
+  toggleClick() {
+    this.setState({
+      isClicked: !this.state.isClicked
+
+    });
   }
 
   handleChange(event) {
@@ -52,18 +59,19 @@ export default class ScheduleAppointment extends React.Component {
   }
 
   render() {
+    const clickable = this.state.isClicked ? 'hidden' : '';
     return <>
       <div className="accordion" id="accordionExample">
         <div className="accordion-item">
           <h2 className="accordion-header" id="headingOne">
-            <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <button className="accordion-button" onClick={this.toggleClick} type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
               Schedule Appointment
               </button>
           </h2>
           <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
             <div className="accordion-body">
               <strong>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} className={clickable}>
                   <div className="mb-1">
                     <label htmlFor="name" className="col-form-label">Name</label>
                     <input type="text" className="form-control" id="name" onChange={this.handleChange} name="name"/>

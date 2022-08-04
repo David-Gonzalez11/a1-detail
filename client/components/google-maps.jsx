@@ -88,7 +88,7 @@ function MyComponent() {
       </>
     </GoogleMap>
       )
-    : <><div>nothing</div></>;
+    : <><div>Loading...</div></>;
 }
 
 export default React.memo(MyComponent);
