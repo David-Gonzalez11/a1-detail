@@ -119,4 +119,17 @@ values ($1, $2, $3, $4, $5, $6)
       res.status(201).json(result.rows[0]);
     }).catch(err => next(err));
 });
+
+app.get('/api/appointments', (req, res, next) => {
+  const userId = req.user.userId;
+  const sql = `select *
+  from "appointments"
+  where "userId" = $1`;
+  const params = [userId];
+  db.query(sql, params)
+    .then(result => {
+      // console.log(result);
+      res.json(result.rows);
+    }).catch(err => next(err));
+});
 app.use(errorMiddleware);
