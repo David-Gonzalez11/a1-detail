@@ -46,9 +46,10 @@ export default class UserAppointments extends React.Component {
           <div className="card text-bg-light mb-2" key={appt.appointmentId}>
             <div className="card-body">
               <p className="card-text text-center">What: {appt.service}</p>
-
               <p className="card-text text-center">When: {appt.appointmentScheduled}</p>
               <p className='card-text text-center'>Where: {appt.address}</p>
+              <p className='card-text text-center'>City: {appt.city}</p>
+
             </div>
           </div>
         )}
