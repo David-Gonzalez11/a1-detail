@@ -19,7 +19,7 @@ export default class NavBar extends React.Component {
         {user !== null &&
         <>
           {[false].map(expand => (
-            <Navbar key={expand} bg="primary" expand={expand} className="mb-3">
+            <Navbar key={expand} bg="primary" expand={expand} className="mb-1">
               <Container fluid>
                 <a href="#main-page"><img src="https://media.istockphoto.com/vectors/car-wash-cartoon-symbol-vector-illustration-vector-id1282310388?k=20&m=1282310388&s=612x612&w=0&h=mC7n35uNLQkSYWGQjyAsN8oU8MO25U3Me_6y9iq-duw=" className="main-image" style={style}/></a>
                 <Navbar.Brand href="#" />

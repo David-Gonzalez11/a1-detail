@@ -42,7 +42,10 @@ export default class UserAppointments extends React.Component {
     return (
 
       <>
+        <h1 className='text-center'>Appointments</h1>
+
         {this.state.appointments.map(appt =>
+
           <div className="card text-bg-light mb-2" key={appt.appointmentId}>
             <div className="card-body">
               <p className="card-text text-center">What: {appt.service}</p>
