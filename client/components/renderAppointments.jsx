@@ -13,10 +13,8 @@ export default class UserAppointments extends React.Component {
 
   handleDelete(appointmentId) {
     const newArray = this.state.appointments.filter(appts => {
-      return appts !== appointmentId.appointmentId;
+      return appts.appointmentId !== appointmentId.appointmentId;
     });
-    console.log('appointmentIDDDD', appointmentId.appointmentId);
-    console.log(newArray);
     const req = {
       method: 'DELETE',
       headers: {
@@ -27,7 +25,6 @@ export default class UserAppointments extends React.Component {
     };
     fetch(`/api/appointments/${appointmentId.appointmentId}`, req)
       .then(result => {
-        console.log('reponse', result);
         this.setState({
           appointments: newArray,
           isLoaded: true
@@ -76,7 +73,7 @@ export default class UserAppointments extends React.Component {
           <div className="card text-bg-light mb-2" key={appt.appointmentId}>
             <div className="card-body">
 
-              <button onClick={this.handleDelete.bind(null, appt)} className=" text-white bg-danger">Delete</button>
+              <i onClick={this.handleDelete.bind(null, appt)} className="bi bi-trash-fill text-danger">Delete</i>
               <p className="card-text text-center">What: {appt.service}</p>
               <p className="card-text text-center">When: {appt.appointmentScheduled}</p>
               <p className='card-text text-center'>Where: {appt.address}</p>
