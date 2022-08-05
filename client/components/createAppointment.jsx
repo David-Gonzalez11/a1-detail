@@ -39,7 +39,7 @@ export default class ScheduleAppointment extends React.Component {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-Access-Token': localStorage.getItem('react-context-jwt')
+        'X-Access-Token': localStorage.getItem('authToken-jwt')
 
       },
 

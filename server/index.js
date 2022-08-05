@@ -131,4 +131,33 @@ app.get('/api/appointments', (req, res, next) => {
       res.json(result.rows);
     }).catch(err => next(err));
 });
+app.delete('/api/appointments/:appointmentId', (req, res, next) => {
+  const appointmentId = Number(req.params.appointmentId);
+  if (!Number.isInteger(appointmentId) || appointmentId <= 0) {
+    res.status(400).json({
+      error: 'appointmentId must be a positive integer'
+    });
+    return;
+  }
+  const sql = `delete from "appointments"
+   where "appointmentId" = $1
+   returning *`;
+  const values = [appointmentId];
+  db.query(sql, values).then(result => {
+    const appt = result.rows[0];
+    if (!appt) {
+      res.status(404).json({
+        error: `Cannot find user with appointmentId ${appointmentId}`
+      });
+    } else {
+      res.sendStatus(204);
+    }
+  }).catch(err => {
+    console.error(err);
+    res.status(500).json({
+      error: 'An unexpected error occured'
+    });
+  });
+});
+
 app.use(errorMiddleware);
