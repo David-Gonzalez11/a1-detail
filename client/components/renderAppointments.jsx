@@ -57,7 +57,6 @@ export default class UserAppointments extends React.Component {
   }
 
   render() {
-    console.log('APPPS', this.state.appointments.length);
 
     const { isLoaded } = this.state;
 
