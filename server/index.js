@@ -124,7 +124,8 @@ app.get('/api/appointments', (req, res, next) => {
   const userId = req.user.userId;
   const sql = `select *
   from "appointments"
-  where "userId" = $1`;
+  where "userId" = $1
+  order by "appointmentId" desc`;
   const params = [userId];
   db.query(sql, params)
     .then(result => {

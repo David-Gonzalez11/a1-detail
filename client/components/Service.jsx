@@ -18,7 +18,6 @@ export default class Service extends React.Component {
                 <Popover.Header as="h3">Exterior Clean</Popover.Header>
                 <Popover.Body>
                   <p className='fs-4'> 25 to 35 minutes </p>
-
                   <i className="bi bi-circle-fill"> Exterior hand Wash</i><br />
                   <i className="bi bi-circle-fill"> Exterior window clean</i><br />
                   <i className="bi bi-circle-fill"> Clean tires and apply tire dressing</i>

@@ -64,7 +64,7 @@ export default class ScheduleAppointment extends React.Component {
       <div className="accordion" id="accordionExample">
         <div className="accordion-item">
           <h2 className="accordion-header" id="headingOne">
-            <button className="accordion-button" onClick={this.toggleClick} type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <button className="accordion-button bg-info rounded" onClick={this.toggleClick} type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
               Schedule Appointment
               </button>
           </h2>
@@ -100,7 +100,7 @@ export default class ScheduleAppointment extends React.Component {
                    </select>
                   </div>
                   <div className="text-center d-grid gap-2 pt-2">
-                    <button type="submit" className="btn btn-secondary">Submit</button>
+                    <button type="submit" className="btn btn-secondary" href="#appointmnents">Submit</button>
                   </div>
                 </form>
               </strong>
