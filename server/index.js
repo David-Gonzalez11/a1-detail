@@ -102,6 +102,8 @@ app.post('/api/auth/sign-in', (req, res, next) => {
       next(err);
     });
 });
+// post method for Schedule Appoinemts
+
 app.use(auth);
 app.post('/api/appointments/', (req, res, next) => {
   const { name, address, city, appointmentScheduled, service } = req.body;
@@ -119,7 +121,6 @@ values ($1, $2, $3, $4, $5, $6)
       res.status(201).json(result.rows[0]);
     }).catch(err => next(err));
 });
-
 app.get('/api/appointments', (req, res, next) => {
   const userId = req.user.userId;
   const sql = `select *

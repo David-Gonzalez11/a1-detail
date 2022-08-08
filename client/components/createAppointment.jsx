@@ -46,7 +46,9 @@ export default class ScheduleAppointment extends React.Component {
       body: JSON.stringify(this.state)
     };
     fetch('/api/appointments/', req)
-      .then(res => res.json())
+      .then(res => res.json()
+      )
+
       .then(result => {
         this.setState({
           name,
@@ -55,10 +57,13 @@ export default class ScheduleAppointment extends React.Component {
           appointmentScheduled: event.target.value,
           service: event.target.value
         });
+
       });
+
   }
 
   render() {
+
     const clickable = this.state.isClicked ? 'hidden' : '';
     return <>
       <div className="accordion" id="accordionExample">
@@ -94,9 +99,9 @@ export default class ScheduleAppointment extends React.Component {
                    <select name="service" onChange={this.handleChange} value={this.state.value}>
                     <option>--Service--</option>
                    <option name="Exterior Clean" onChange={this.handleChange}>Exterior Clean</option>
-                      <option name="Basic Wash" onChange={this.handleChange} value={this.state.service}>Basic Wash</option>
-                      <option name="Mini Detail" onChange={this.handleChange} value={this.state.service}>Mini Detail</option>
-                      <option name="Full Detail" onChange={this.handleChange} value={this.state.service}>Full Detail</option>
+                      <option name="Basic Wash" onChange={this.handleChange}>Basic Wash</option>
+                      <option name="Mini Detail" onChange={this.handleChange}>Mini Detail</option>
+                      <option name="Full Detail" onChange={this.handleChange}>Full Detail</option>
                    </select>
                   </div>
                   <div className="text-center d-grid gap-2 pt-2">

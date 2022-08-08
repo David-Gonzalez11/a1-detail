@@ -3,32 +3,6 @@ import React from 'react';
 import { MarkerF, InfoWindowF, GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import ScheduleAppointment from './createAppointment';
 
-// import Appointments from './appointmentModal';
-// import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
-
-// const Marker = options => {
-//   const [marker, setMarker] = React.useState();
-
-//   React.useEffect(() => {
-//     if (!marker) {
-//       setMarker(new window.google.maps.Marker());
-//     }
-
-//     // remove marker from map on unmount
-//     return () => {
-//       if (marker) {
-//         marker.setMap(null);
-//       }
-//     };
-//   }, [marker]);
-//   React.useEffect(() => {
-//     if (marker) {
-//       marker.setOptions(options);
-//     }
-//   }, [marker, options]);
-//   return null;
-// };
-
 const containerStyle = {
   width: '100%',
   height: '580px'
