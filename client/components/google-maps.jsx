@@ -29,7 +29,6 @@ function MyComponent() {
     googleMapsApiKey: (process.env.REACT_APP_API_KEY)
 
   });
-  console.log('GOOGLE API KEY:', process.env.REACT_APP_API_KEY);
 
   const [map, setMap] = React.useState(null);
 
