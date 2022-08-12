@@ -42,7 +42,7 @@ export default class Service extends React.Component {
               placement={placement}
               overlay={
                 <Popover id={`popover-positioned-${placement}`}>
-                  <Popover.Header as="h3">Full Detail</Popover.Header>
+                  <Popover.Header as="h3" >Full </Popover.Header>
                   <Popover.Body>
                     <p className='fs-4'>80 to 90 minutes</p>
 

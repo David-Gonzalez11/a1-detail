@@ -1,33 +1,6 @@
 import React from 'react';
-// import Geocode from './lat-long';
 import { MarkerF, InfoWindowF, GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import ScheduleAppointment from './createAppointment';
-
-// import Appointments from './appointmentModal';
-// import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
-
-// const Marker = options => {
-//   const [marker, setMarker] = React.useState();
-
-//   React.useEffect(() => {
-//     if (!marker) {
-//       setMarker(new window.google.maps.Marker());
-//     }
-
-//     // remove marker from map on unmount
-//     return () => {
-//       if (marker) {
-//         marker.setMap(null);
-//       }
-//     };
-//   }, [marker]);
-//   React.useEffect(() => {
-//     if (marker) {
-//       marker.setOptions(options);
-//     }
-//   }, [marker, options]);
-//   return null;
-// };
 
 const containerStyle = {
   width: '100%',
@@ -53,8 +26,10 @@ const position = {
 function MyComponent() {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: ''
+    googleMapsApiKey: (process.env.REACT_APP_API_KEY)
+
   });
+  console.log('GOOGLE API KEY:', process.env.REACT_APP_API_KEY);
 
   const [map, setMap] = React.useState(null);
 
@@ -69,6 +44,7 @@ function MyComponent() {
   }, []);
 
   return isLoaded
+
     ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
