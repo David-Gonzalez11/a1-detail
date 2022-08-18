@@ -106,3 +106,7 @@ div.map {
     transform: rotate(360deg);
   }
 }
+
+.appointments {
+  margin-left: 1rem;
+}
