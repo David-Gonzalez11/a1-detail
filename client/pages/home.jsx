@@ -9,9 +9,16 @@ export default class Home extends React.Component {
     };
   }
 
+  demoLogin() {
+    this.setState({
+      username: 'user',
+      password: 'user'
+    });
+  }
+
   render() {
     const style = {
-      width: '700px'
+      width: '600px'
     };
     return (
       <>
@@ -27,6 +34,9 @@ export default class Home extends React.Component {
           <a className="btn btn-primary fs-5" role="button" id='login' onClick={this.handleClick} href="#sign-in">LOGIN</a>
           <a className="btn btn-primary fs-5" role="button" id='signup' onClick={this.handleClick} href="#sign-up">SIGN UP</a>
         </div>
+        <div className='text-center'>
+        </div>
+
       </>
 
     );
