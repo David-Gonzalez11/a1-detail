@@ -96,6 +96,9 @@ app.post('/api/auth/sign-in', (req, res, next) => {
             token,
             user: payload
           });
+        })
+        .catch(err => {
+          next(err);
         });
     })
     .catch(err => {

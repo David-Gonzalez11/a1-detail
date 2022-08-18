@@ -5,10 +5,20 @@ export default class AuthForm extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      email: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
+  }
+
+  demoLogin(event) {
+    this.setState({
+      email: 'demo@demo.com',
+      name: 'demo1',
+      password: 'demo'
+    });
   }
 
   handleChange(event) {
@@ -49,7 +59,7 @@ export default class AuthForm extends React.Component {
       : 'Login';
 
     const headingtext = action === 'sign-in' ? 'Sign In' : 'Create Account';
-
+    const hideDemobtn = action === 'sign-up' ? 'invisible' : '';
     return (
       <form className="w-100 container-fluid border  pt-3" onSubmit={handleSubmit}>
        <h5 className='text-center pt-2'>{headingtext}</h5>
@@ -64,7 +74,8 @@ export default class AuthForm extends React.Component {
             type="text"
             name="name"
             onChange={handleChange}
-            className="form-control bg-light" />
+            className="form-control bg-light"
+            value={this.state.name} />
 
         </div>
         <div className="mb-3">
@@ -77,7 +88,8 @@ export default class AuthForm extends React.Component {
             type="email"
             name="email"
             onChange={handleChange}
-            className="form-control bg-light" />
+            className="form-control bg-light"
+            value={this.state.email}/>
         </div>
         <div className="mb-3">
         <label htmlFor="Password" className="form-label">
@@ -89,7 +101,8 @@ export default class AuthForm extends React.Component {
           type="password"
           name="password"
           onChange={handleChange}
-          className="form-control bg-light" />
+          className="form-control bg-light"
+          value={this.state.password} />
 </div>
         <div className="d-flex justify-content-between align-items-center">
           <small>
@@ -97,9 +110,12 @@ export default class AuthForm extends React.Component {
             </a>
           </small>
           <div className='text-center'></div>
-          <button type="submit" className="btn btn-primary col-md-6 btn-lg continue-btn uer-select-auto mt-3" href="#main-page">
+          <button type="submit" className="btn btn-primary col-md-6 btn-lg continue-btn uer-select-auto mt-3 mb-2" href="#main-page">
             {submitButtonText}
           </button>
+        </div>
+        <div className='text-center'>
+          <button className={`btn btn-info col-md-4 ${hideDemobtn}`} onClick={this.demoLogin}>Demo Login</button>
         </div>
       </form>
     );

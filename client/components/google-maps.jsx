@@ -4,7 +4,7 @@ import ScheduleAppointment from './createAppointment';
 
 const containerStyle = {
   width: '100%',
-  height: '580px'
+  height: '100vh'
 };
 
 const center = {
@@ -43,7 +43,6 @@ function MyComponent() {
   }, []);
 
   return isLoaded
-
     ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
@@ -63,7 +62,7 @@ function MyComponent() {
       </>
     </GoogleMap>
       )
-    : <><div>Loading...</div></>;
+    : <><div className="lds-dual-ring text-center"><h1>Loading...</h1></div></>;
 }
 
 export default React.memo(MyComponent);
