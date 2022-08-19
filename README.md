@@ -1,4 +1,4 @@
-# final-project
+# a1-detail
 
 A full stack solo project.
 
