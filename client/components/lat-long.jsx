@@ -9,7 +9,6 @@ export default class Geocode extends Component {
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(function (position) {
-      // console.log(position);
     });
   }
 

@@ -11,9 +11,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import MyComponent from './components/google-maps';
 import Geocode from './components/lat-long';
-import UserAppointments from './components/renderAppointments';
+import UserAppointments from './components/render-appointments';
 
-// import Appointments from './components/appointmentModal';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -69,7 +68,6 @@ export default class App extends React.Component {
         <>
 
       <MyComponent />
-      {/* <Appointments /> */}
       <Service />
       <Geocode />
       </>
