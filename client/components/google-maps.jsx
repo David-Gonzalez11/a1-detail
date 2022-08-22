@@ -1,6 +1,6 @@
 import React from 'react';
 import { MarkerF, InfoWindowF, GoogleMap, useJsApiLoader } from '@react-google-maps/api';
-import ScheduleAppointment from './createAppointment';
+import ScheduleAppointment from './create-appointment';
 
 const containerStyle = {
   width: '100%',
@@ -51,9 +51,7 @@ function MyComponent() {
       onLoad={onLoad}
       onUnmount={onUnmount}
     >
-      { /* Child components, such as markers, info windows, etc. */}
       <>
-          {/* onClick={props.onToggleOpen} */}
           <MarkerF style={markerStyle} position={position} >
            <InfoWindowF onCloseClick="" position={position}>
             <ScheduleAppointment />

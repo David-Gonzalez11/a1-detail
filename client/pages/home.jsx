@@ -18,7 +18,7 @@ export default class Home extends React.Component {
 
   render() {
     const style = {
-      width: '600px'
+      width: '50vw'
     };
     return (
       <>

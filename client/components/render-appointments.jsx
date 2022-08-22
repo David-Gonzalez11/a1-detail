@@ -60,7 +60,6 @@ export default class UserAppointments extends React.Component {
 
     const { isLoaded } = this.state;
 
-    // if (!isLoaded) return <span className="visually-hidden">Loading...</span>;
     if (!isLoaded) return <div className="lds-dual-ring text-center"><h1>loading...</h1></div>;
 
     return (

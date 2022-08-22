@@ -4,7 +4,6 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import AppContext from '../lib/app-context';
-// import Redirect from '../components/redirect';
 
 export default class NavBar extends React.Component {
   render() {
@@ -13,7 +12,6 @@ export default class NavBar extends React.Component {
       marginLeft: '1rem'
     };
     const { user, handleSignOut } = this.context;
-    // if (user) return <Redirect to="" />;
     return (
 <>
         {user !== null &&
