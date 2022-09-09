@@ -8,7 +8,7 @@ export default class Service extends React.Component {
     const popUp =
  <>
       {
-        ['top'].map(placement => (
+        ['bottom'].map(placement => (
           <OverlayTrigger
             trigger="click"
             key={placement}
@@ -35,7 +35,7 @@ export default class Service extends React.Component {
     const fullDetail = (
       <>
         {
-          ['top'].map(placement => (
+          ['bottom'].map(placement => (
             <OverlayTrigger
               trigger="click"
               key={placement}
@@ -68,7 +68,7 @@ export default class Service extends React.Component {
     const basicWash = (
       <>
         {
-          ['top'].map(placement => (
+          ['bottom'].map(placement => (
             <OverlayTrigger
               trigger="click"
               key={placement}
@@ -98,7 +98,7 @@ export default class Service extends React.Component {
     const miniDetail = (
       <>
         {
-          ['top'].map(placement => (
+          ['bottom'].map(placement => (
             <OverlayTrigger
               trigger="click"
               key={placement}
