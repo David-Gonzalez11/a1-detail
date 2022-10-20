@@ -93,7 +93,7 @@ export default class ScheduleAppointment extends React.Component {
                    <label htmlFor='service' className='pt-3'>Please select a service:</label> <br />
                    <select name="service" onChange={this.handleChange} value={this.state.value}>
                     <option>--Service--</option>
-                   <option name="Exterior Clean" onChange={this.handleChange}>Exterior Clean</option>
+                   <option name="Exterior Clean" onChange={this.handleChange} value={this.state.service}>Exterior Clean</option>
                       <option name="Basic Wash" onChange={this.handleChange} value={this.state.service}>Basic Wash</option>
                       <option name="Mini Detail" onChange={this.handleChange} value={this.state.service}>Mini Detail</option>
                       <option name="Full Detail" onChange={this.handleChange} value={this.state.service}>Full Detail</option>

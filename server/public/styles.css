@@ -27,8 +27,20 @@ p {
   justify-content: center;
 }
 
+li {
+  font-size: small;
+}
+
 ul {
+  font-size: 12px;
   width: 100%;
+  justify-content: center;
+}
+
+.bi-circle-fill {
+  font-size: 8px;
+  padding: none;
+  margin: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -73,6 +85,18 @@ ul {
   border: 6px solid rgb(37, 115, 231);
   border-color: rgb(46, 118, 212) transparent;
   animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@media screen and (min-width: 500px) {
+  .card {
+    margin: auto;
+  }
+
+  .nav-item {
+    display: flex;
+    width: 50%;
+    flex-wrap: wrap;
+  }
 }
 
 @keyframes lds-dual-ring {

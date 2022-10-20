@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { MarkerF, InfoWindowF, GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import ScheduleAppointment from './create-appointment';
 
@@ -6,6 +6,11 @@ const containerStyle = {
   width: '100%',
   height: '100vh'
 };
+
+navigator.geolocation.getCurrentPosition(function (position) {
+  console.log('Latitude is :', position.coords.latitude);
+  console.log('Longitude is :', position.coords.longitude);
+});
 
 const center = {
   lat: 33.6846,
@@ -18,29 +23,18 @@ const markerStyle = {
   transform: 'translate(-50%, -100%)'
 };
 
+const position = {
+  lat: 33.6846,
+  lng: -117.8265
+};
+
 function MyComponent() {
-  const [coords, setCoords] = useState({
-    lat: null,
-    lang: null
-  });
-  navigator.geolocation.getCurrentPosition(function (position) {
-    setCoords({
-      lat: position.coords.latitude,
-      lang: position.coords.longitude
-    });
-  });
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: (process.env.REACT_APP_API_KEY)
 
   });
-  // const center = {
 
-  // };
-  const position = {
-    lat: coords.lat,
-    lng: coords.lang
-  };
   const [map, setMap] = React.useState(null);
 
   const onLoad = React.useCallback(function callback(map) {
