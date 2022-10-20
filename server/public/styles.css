@@ -21,8 +21,8 @@ p {
 }
 
 .continue-btn {
-  margin-right: 1.5rem;
   margin-top: 7rem;
+  margin-right: 15rem;
   display: flex;
   justify-content: center;
 }
