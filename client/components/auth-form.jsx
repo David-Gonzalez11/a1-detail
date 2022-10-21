@@ -60,6 +60,8 @@ export default class AuthForm extends React.Component {
 
     const headingtext = action === 'sign-in' ? 'Sign In' : 'Create Account';
     const hideDemobtn = action === 'sign-up' ? 'invisible' : '';
+    const hideLoginButon = action === 'sign-in' ? 'invisible' : '';
+
     return (
       <form className="w-100 container-fluid border  pt-3" onSubmit={handleSubmit}>
        <h5 className='text-center pt-2'>{headingtext}</h5>
@@ -110,7 +112,7 @@ export default class AuthForm extends React.Component {
             </a>
           </small>
           <div className='text-center'></div>
-          <button type="submit" className="btn btn-primary col-md-6 btn-lg continue-btn uer-select-auto mt-3 mb-2" href="#main-page">
+          <button type="submit" className={`btn btn-primary col-md-6 btn-md continue-btn uer-select-auto mt-3 mb-2 ${hideLoginButon}`} href="#main-page">
             {submitButtonText}
           </button>
         </div>
