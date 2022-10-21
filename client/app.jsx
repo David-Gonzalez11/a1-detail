@@ -61,19 +61,18 @@ export default class App extends React.Component {
       return <AuthForm action={route.path} onSignIn={this.handleSignIn}/>;
     }
     if (route.path === 'main-page') {
-      return <>
+      return <MyComponent />;
+    }
+    if (route.path === 'services') {
+      return (
+        <>
+
+      <MyComponent />
       <Service />
-      <MyComponent/>
-    
-    // if (route.path === 'services') {
-    //   return (
-    //     <>
-    //   <Service />
-    //   <MyComponent />
-    //   <Geocode />
-    //   </>
-    //   );
-    // }
+      <Geocode />
+      </>
+      );
+    }
     if (route.path === 'appointments') {
       return <UserAppointments />;
     }
