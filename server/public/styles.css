@@ -92,11 +92,11 @@ ul {
     margin: auto;
   }
 
-  .nav-item {
+  /* .nav-item {
     display: flex;
     width: 50%;
     flex-wrap: wrap;
-  }
+  } */
 }
 
 @keyframes lds-dual-ring {
