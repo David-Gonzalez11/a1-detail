@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { MarkerF, InfoWindowF, GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import ScheduleAppointment from './create-appointment';
 
@@ -29,7 +29,7 @@ function MyComponent() {
   //   setCoords({ lat: position.coords.latitude, lang: position.coords.longitude });
   //   console.log('Latitude is :', position.coords.latitude);
   //   console.log('Longitude is :', position.coords.longitude);
-  });
+  // });
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: (process.env.REACT_APP_API_KEY)
