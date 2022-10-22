@@ -1,5 +1,10 @@
 import React from 'react';
-import { MarkerF, InfoWindowF, GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import {
+  MarkerF,
+  InfoWindowF,
+  GoogleMap,
+  useJsApiLoader
+} from '@react-google-maps/api';
 import ScheduleAppointment from './create-appointment';
 
 const containerStyle = {
@@ -23,18 +28,31 @@ const position = {
   lng: -117.8265
 };
 
+// function findLocation() {
+//   const success = position => {
+//     console.log(position);
+//     const latitude = position.coords.latitude;
+//     const longitude = position.coords.longitude;
+//     console.log(longitude);
+//     console.log(latitude);
+
+//   };
+//   const error = () => {
+//     console.log('unable to retreuvce');
+//   };
+//   navigator.geolocation.getCurrentPosition(success, error);
+// }
 function MyComponent() {
-  // const [coordss, setCoords] = useState({ lat: null, lang: null });
+
   // navigator.geolocation.getCurrentPosition(function (position) {
-  //   setCoords({ lat: position.coords.latitude, lang: position.coords.longitude });
   //   console.log('Latitude is :', position.coords.latitude);
   //   console.log('Longitude is :', position.coords.longitude);
   // });
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: (process.env.REACT_APP_API_KEY)
-
+    googleMapsApiKey: process.env.REACT_APP_API_KEY
   });
+
   const center = {
     lat: 33.6846,
     lng: -117.8265
@@ -43,7 +61,13 @@ function MyComponent() {
   const [map, setMap] = React.useState(null);
 
   const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds(position);
+    const bounds = new window.google.maps.LatLngBounds(
+      navigator.geolocation.getCurrentPosition(function (position) {
+        // console.log(position.coords.longitude);
+        // console.log(position.coords.latitude);
+
+      })
+    );
     map.fitBounds(bounds);
     setMap(map);
   }, []);
@@ -54,23 +78,31 @@ function MyComponent() {
 
   return isLoaded
     ? (
-    <GoogleMap
-      mapContainerStyle={containerStyle}
-      center={center}
-      zoom={14}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
-    >
-      <>
-          <MarkerF style={markerStyle} position={position} >
-           <InfoWindowF onCloseClick="" position={position}>
-            <ScheduleAppointment />
-                     </InfoWindowF>
+    <>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={14}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+      >
+        <>
+          <MarkerF style={markerStyle} position={position}>
+            <InfoWindowF onCloseClick="" position={position}>
+              <ScheduleAppointment />
+            </InfoWindowF>
           </MarkerF>
-      </>
-    </GoogleMap>
+        </>
+      </GoogleMap>
+    </>
       )
-    : <><div className="lds-dual-ring text-center"><h1>Loading...</h1></div></>;
+    : (
+    <>
+      <div className="lds-dual-ring text-center">
+        <h1>Loading...</h1>
+      </div>
+    </>
+      );
 }
 
 export default React.memo(MyComponent);
