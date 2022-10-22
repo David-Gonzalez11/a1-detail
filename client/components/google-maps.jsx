@@ -23,11 +23,6 @@ const markerStyle = {
   transform: 'translate(-50%, -100%)'
 };
 
-const position = {
-  lat: 33.6846,
-  lng: -117.8265
-};
-
 // function findLocation() {
 //   const success = position => {
 //     console.log(position);
@@ -43,6 +38,7 @@ const position = {
 //   navigator.geolocation.getCurrentPosition(success, error);
 // }
 function MyComponent() {
+  const [cord, setCords] = React.useState(null);
 
   // navigator.geolocation.getCurrentPosition(function (position) {
   //   console.log('Latitude is :', position.coords.latitude);
@@ -54,8 +50,8 @@ function MyComponent() {
   });
 
   const center = {
-    lat: 33.6846,
-    lng: -117.8265
+    lat: 33.7175,
+    lng: -117.8311
   };
 
   const [map, setMap] = React.useState(null);
@@ -63,9 +59,11 @@ function MyComponent() {
   const onLoad = React.useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds(
       navigator.geolocation.getCurrentPosition(function (position) {
-        // console.log(position.coords.longitude);
-        // console.log(position.coords.latitude);
+        setCords({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
 
+        });
       })
     );
     map.fitBounds(bounds);
@@ -75,7 +73,10 @@ function MyComponent() {
   const onUnmount = React.useCallback(function callback(map) {
     setMap(null);
   }, []);
-
+  // const position = {
+  //   lat: 33.6846,
+  //   lng: -117.8265
+  // };
   return isLoaded
     ? (
     <>
@@ -87,8 +88,8 @@ function MyComponent() {
         onUnmount={onUnmount}
       >
         <>
-          <MarkerF style={markerStyle} position={position}>
-            <InfoWindowF onCloseClick="" position={position}>
+          <MarkerF style={markerStyle} position={cord}>
+            <InfoWindowF onCloseClick="" position={cord}>
               <ScheduleAppointment />
             </InfoWindowF>
           </MarkerF>
