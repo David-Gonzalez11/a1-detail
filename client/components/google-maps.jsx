@@ -55,7 +55,7 @@ function MyComponent() {
   };
 
   const [map, setMap] = React.useState(null);
-
+  // maybe chamge getCUrremt psoiton to watch psotion to watch users location
   const onLoad = React.useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds(
       navigator.geolocation.getCurrentPosition(function (position) {
