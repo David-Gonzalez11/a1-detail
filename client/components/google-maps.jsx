@@ -12,10 +12,6 @@ const containerStyle = {
   height: '100vh'
 };
 
-// const center = {
-//   lat: 33.6846,
-//   lng: -117.8265
-// };
 const markerStyle = {
   position: 'absolute',
   top: '100%',
@@ -28,26 +24,8 @@ const position = {
   lng: -117.8265
 };
 
-// function findLocation() {
-//   const success = position => {
-//     console.log(position);
-//     const latitude = position.coords.latitude;
-//     const longitude = position.coords.longitude;
-//     console.log(longitude);
-//     console.log(latitude);
-
-//   };
-//   const error = () => {
-//     console.log('unable to retreuvce');
-//   };
-//   navigator.geolocation.getCurrentPosition(success, error);
-// }
 function MyComponent() {
 
-  // navigator.geolocation.getCurrentPosition(function (position) {
-  //   console.log('Latitude is :', position.coords.latitude);
-  //   console.log('Longitude is :', position.coords.longitude);
-  // });
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: process.env.REACT_APP_API_KEY
@@ -63,8 +41,6 @@ function MyComponent() {
   const onLoad = React.useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds(
       navigator.geolocation.getCurrentPosition(function (position) {
-        // console.log(position.coords.longitude);
-        // console.log(position.coords.latitude);
 
       })
     );

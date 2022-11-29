@@ -68,16 +68,7 @@ export default class App extends React.Component {
 
       </>;
     }
-    // if (route.path === 'services') {
-    //   return (
-    //     <>
 
-    //   <MyComponent />
-    //   <Service />
-    //   <Geocode />
-    //   </>
-    //   );
-    // }
     if (route.path === 'appointments') {
       return <UserAppointments />;
     }
