@@ -27,11 +27,6 @@ app.get('/api/hello', (req, res) => {
   res.json({ hello: 'world' });
 });
 
-app.listen(process.env.PORT, () => {
-  process.stdout.write(`\n\napp listening on port ${process.env.PORT}\n\n`);
-});
-app.use(auth);
-
 const jsonMiddleware = express.json();
 
 app.use(jsonMiddleware);
@@ -107,6 +102,8 @@ app.post('/api/auth/sign-in', (req, res, next) => {
     });
 });
 app.post('/api/appointments/', (req, res, next) => {
+  app.use(auth);
+
   const { name, address, city, appointmentScheduled, service } = req.body;
   if (!name || !city || !address) {
     throw new ClientError(401, 'All fields are required');
@@ -164,3 +161,6 @@ app.delete('/api/appointments/:appointmentId', (req, res, next) => {
 });
 
 app.use(errorMiddleware);
+app.listen(process.env.PORT, () => {
+  process.stdout.write(`\n\napp listening on port ${process.env.PORT}\n\n`);
+});
