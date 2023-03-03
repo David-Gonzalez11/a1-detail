@@ -30,6 +30,7 @@ app.get('/api/hello', (req, res) => {
 app.listen(process.env.PORT, () => {
   process.stdout.write(`\n\napp listening on port ${process.env.PORT}\n\n`);
 });
+app.use(auth);
 
 const jsonMiddleware = express.json();
 
@@ -105,7 +106,6 @@ app.post('/api/auth/sign-in', (req, res, next) => {
       next(err);
     });
 });
-app.use(auth);
 app.post('/api/appointments/', (req, res, next) => {
   const { name, address, city, appointmentScheduled, service } = req.body;
   if (!name || !city || !address) {
