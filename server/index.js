@@ -57,6 +57,8 @@ app.post('/api/auth/sign-up', (req, res, next) => {
 });
 
 app.post('/api/auth/sign-in', (req, res, next) => {
+  app.use(auth);
+
   const { password, email, name } = req.body;
   if (!email || !password) {
     throw new ClientError(401, 'invalid login');
@@ -101,6 +103,8 @@ app.post('/api/auth/sign-in', (req, res, next) => {
       next(err);
     });
 });
+app.use(auth);
+
 app.post('/api/appointments/', (req, res, next) => {
   app.use(auth);
 

@@ -72,7 +72,7 @@ export default class UserAppointments extends React.Component {
           <div className="card text-bg-light mb-2" key={appt.appointmentId}>
             <div className="card-body">
 
-              <i onClick={this.handleDelete.bind(null, appt)} className="bi bi-trash-fill text-danger">Delete</i>
+              <i onClick={this.handleDelete.bind(appt.appointmentId)} className="bi bi-trash-fill text-danger">Delete</i>
               <p className="card-text text-center">What: {appt.service}</p>
               <p className="card-text text-center">When: {appt.appointmentScheduled}</p>
               <p className='card-text text-center'>Where: {appt.address}</p>
