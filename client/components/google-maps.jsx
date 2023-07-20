@@ -19,10 +19,10 @@ const markerStyle = {
   transform: 'translate(-50%, -100%)'
 };
 
-const position = {
-  lat: 33.6846,
-  lng: -117.8265
-};
+// const position = {
+//   lat: 33.6846,
+//   lng: -117.8265
+// };
 
 function MyComponent() {
 
@@ -30,22 +30,30 @@ function MyComponent() {
     id: 'google-map-script',
     googleMapsApiKey: process.env.REACT_APP_API_KEY
   });
-
-  const center = {
+  const [position, setPosition] = React.useState({
     lat: 33.6846,
     lng: -117.8265
-  };
+  });
+  const [center, setCenter] = React.useState({
+    lat: 33.6846,
+    lng: -117.8265
+  });
 
   const [map, setMap] = React.useState(null);
 
   const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds(
-      navigator.geolocation.getCurrentPosition(function (position) {
-
-      })
-    );
-    map.fitBounds(bounds);
     setMap(map);
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        const { latitude, longitude } = position.coords;
+        setCenter({ lat: latitude, lng: longitude });
+        setPosition({ lat: latitude, lng: longitude });
+        map.panTo({ lat: latitude, lng: longitude });
+      },
+      error => {
+        console.error('Error getting user location:', error);
+      }
+    );
   }, []);
 
   const onUnmount = React.useCallback(function callback(map) {
