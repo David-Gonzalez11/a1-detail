@@ -106,7 +106,6 @@ app.post('/api/auth/sign-in', (req, res, next) => {
 app.use(auth);
 
 app.post('/api/appointments/', (req, res, next) => {
-  app.use(auth);
 
   const { name, address, city, appointmentScheduled, service } = req.body;
   if (!name || !city || !address) {
