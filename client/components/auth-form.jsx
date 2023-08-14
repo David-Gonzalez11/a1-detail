@@ -40,7 +40,7 @@ export default class AuthForm extends React.Component {
       .then(res => res.json())
       .then(result => {
         if (action === 'sign-up') {
-          window.location.hash = 'sign-in';
+          window.location.hash = 'sign-up';
         } else if (result.user && result.token) {
           this.props.onSignIn(result);
           window.location.hash = '#main-page';
@@ -60,7 +60,7 @@ export default class AuthForm extends React.Component {
 
     const headingtext = action === 'sign-in' ? 'Sign In' : 'Create Account';
     const hideDemobtn = action === 'sign-up' ? 'invisible' : '';
-    const hideLoginButon = action === 'sign-in' ? 'invisible' : '';
+    const hideLoginButon = action === 'sign-in' ? '' : '';
 
     return (
       <form className="w-100 container-fluid border  pt-3" onSubmit={handleSubmit}>

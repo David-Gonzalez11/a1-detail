@@ -31,7 +31,7 @@ export default class ScheduleAppointment extends React.Component {
   }
 
   handleSubmit(event) {
-    if (this.city === null || this.address === null || this.name === null) {
+    if (this.city === null || this.address === null || this.name === null || this.service === null) {
       alert('all fields are required');
       return;
     }
@@ -59,6 +59,7 @@ export default class ScheduleAppointment extends React.Component {
   }
 
   render() {
+    console.log('appointments', this.state);
     const clickable = this.state.isClicked ? 'hidden' : '';
     return <>
       <div className="accordion" id="accordionExample">
@@ -93,10 +94,10 @@ export default class ScheduleAppointment extends React.Component {
                    <label htmlFor='service' className='pt-3'>Please select a service:</label> <br />
                    <select name="service" onChange={this.handleChange} value={this.state.value}>
                     <option>--Service--</option>
-                   <option name="Exterior Clean" onChange={this.handleChange} value={this.state.service}>Exterior Clean</option>
-                      <option name="Basic Wash" onChange={this.handleChange} value={this.state.service}>Basic Wash</option>
-                      <option name="Mini Detail" onChange={this.handleChange} value={this.state.service}>Mini Detail</option>
-                      <option name="Full Detail" onChange={this.handleChange} value={this.state.service}>Full Detail</option>
+                   <option name="Exterior Clean" onChange={this.handleChange} value={this.state.value}>Exterior Clean</option>
+                      <option name="Basic Wash" onChange={this.handleChange} value={this.state.value}>Basic Wash</option>
+                      <option name="Mini Detail" onChange={this.handleChange} value={this.state.value}>Mini Detail</option>
+                      <option name="Full Detail" onChange={this.handleChange} value={this.state.value}>Full Detail</option>
                    </select>
                   </div>
                   <div className="text-center d-grid gap-2 pt-2">

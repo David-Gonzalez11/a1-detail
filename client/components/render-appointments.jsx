@@ -23,33 +23,31 @@ export default class UserAppointments extends React.Component {
       },
       body: JSON.stringify(this.state)
     };
-    fetch(`/api/appointments/${appointmentId.appointmentId}`, req)
-      .then(result => {
+    fetch(`/api/appointments/${appointmentId.appointmentId}`, req).then(
+      result => {
         this.setState({
           appointments: newArray,
           isLoaded: true
         });
-      });
+      }
+    );
   }
 
   renderList() {
-
     fetch('/api/appointments', {
       headers: {
         'Content-Type': 'application/json',
         'X-Access-Token': localStorage.getItem('authToken-jwt')
       }
     })
-      .then(res =>
-        res.json()
-      )
+      .then(res => res.json())
       .then(data => {
         this.setState({
           appointments: data,
           isLoaded: true
         });
-
-      }).catch(err => console.error(err));
+      })
+      .catch(err => console.error(err));
   }
 
   componentDidMount() {
@@ -57,31 +55,39 @@ export default class UserAppointments extends React.Component {
   }
 
   render() {
-
     const { isLoaded } = this.state;
 
-    if (!isLoaded) return <div className="lds-dual-ring text-center"><h1>loading...</h1></div>;
+    if (!isLoaded) {
+      return (
+        <div className="lds-dual-ring text-center">
+          <h1>loading...</h1>
+        </div>
+      );
+    }
 
     return (
-
       <>
-        <h1 className='text-center'>Appointments</h1>
+        <h1 className="text-center">Appointments</h1>
 
-        {this.state.appointments.map(appt =>
-
+        {this.state.appointments.map(appt => (
           <div className="card text-bg-light mb-2" key={appt.appointmentId}>
             <div className="card-body">
-
-              <i onClick={this.handleDelete.bind(appt.appointmentId)} className="bi bi-trash-fill text-danger">Delete</i>
+              <i
+                onClick={this.handleDelete.bind(appt.appointmentId)}
+                className="bi bi-trash-fill text-danger"
+              >
+                Delete
+              </i>
               <p className="card-text text-center">What: {appt.service}</p>
-              <p className="card-text text-center">When: {appt.appointmentScheduled}</p>
-              <p className='card-text text-center'>Where: {appt.address}</p>
-              <p className='card-text text-center'>City: {appt.city}</p>
+              <p className="card-text text-center">
+                When: {appt.appointmentScheduled}
+              </p>
+              <p className="card-text text-center">Where: {appt.address}</p>
+              <p className="card-text text-center">City: {appt.city}</p>
             </div>
           </div>
-        )}
+        ))}
       </>
-
     );
   }
 }

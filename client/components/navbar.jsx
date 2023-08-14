@@ -52,7 +52,7 @@ export default class NavBar extends React.Component {
                     placement="end"
                   >
                     <Offcanvas.Header closeButton />
-                    <Nav.Link href="#main-page" className="fs-5 appointments">HOME</Nav.Link>
+                    <Nav.Link href="#" className="fs-5 appointments">HOME</Nav.Link>
                     <Nav.Link href="#" className="fs-5 appointments">APPOINTMENTS</Nav.Link>
                     <Offcanvas.Body />
                   </Navbar.Offcanvas>
