@@ -59,7 +59,6 @@ export default class ScheduleAppointment extends React.Component {
   }
 
   render() {
-    console.log('appointments', this.state);
     const clickable = this.state.isClicked ? 'hidden' : '';
     return <>
       <div className="accordion" id="accordionExample">
