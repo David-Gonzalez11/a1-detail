@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class Service extends React.Component {
   render() {
-    const popUp =
+    const exteriorClean =
  <>
       <div className="card" style={{ width: '16rem', height: '25rem' }}>
   <img src="http://bestshinecarwash.com/wp-content/uploads/2019/07/AdobeStock_131682314-1024x683.jpeg" className="card-img-top" alt="..." />
@@ -51,6 +51,7 @@ export default class Service extends React.Component {
                     <li>Exterior window clean</li>
                     <li>Clean tires and apply tire dressing</li>
                     <li>Interior Window Clean</li>
+                    <li>Vacuum</li>
                     <li>Paste Wax</li>
     </ul>
   </div>
@@ -68,6 +69,7 @@ export default class Service extends React.Component {
       <li> Exterior window clean</li>
       <li> Clean tires and apply dresisng</li>
       <li>Interior Window Clean</li>
+      <li>Vacuum</li>
       <li>Paste Wax</li>
 
     </ul>
@@ -81,7 +83,7 @@ export default class Service extends React.Component {
       <div>
   <ul className="nav nav-pills nav-fill">
     <li className="nav-item">
-        <span>{popUp}</span>
+        <span>{exteriorClean}</span>
 
     </li>
     <li className="nav-item">
