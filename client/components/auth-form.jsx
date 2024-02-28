@@ -40,7 +40,8 @@ export default class AuthForm extends React.Component {
       .then(res => res.json())
       .then(result => {
         if (action === 'sign-up') {
-          window.location.hash = 'sign-up';
+          window.location.hash = '#sign-in';
+
         } else if (result.user && result.token) {
           this.props.onSignIn(result);
           window.location.hash = '#main-page';
@@ -77,7 +78,7 @@ export default class AuthForm extends React.Component {
             name="name"
             onChange={handleChange}
             className="form-control bg-light"
-            value={this.state.name} />
+            value={this.state.name || ''} />
 
         </div>
         <div className="mb-3">
@@ -91,7 +92,7 @@ export default class AuthForm extends React.Component {
             name="email"
             onChange={handleChange}
             className="form-control bg-light"
-            value={this.state.email}/>
+            value={this.state.email || ''}/>
         </div>
         <div className="mb-3">
         <label htmlFor="Password" className="form-label">
@@ -104,11 +105,15 @@ export default class AuthForm extends React.Component {
           name="password"
           onChange={handleChange}
           className="form-control bg-light"
-          value={this.state.password} />
+          value={this.state.password || ''} />
 </div>
         <div className="d-flex justify-content-between align-items-center">
           <small>
             <a className="text-muted" href={alternateActionHref}>
+              <div>
+              {/* <a href="#"> return to mainpage</a> */}
+
+              </div>
             </a>
           </small>
           <div className='text-center'></div>

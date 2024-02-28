@@ -66,17 +66,13 @@ export default class UserAppointments extends React.Component {
     const { isLoaded, appointments } = this.state;
     const newsss = appointments.length === 0 ? 'No Appointments' : 'Appointments';
 
-    if (!isLoaded) return <div className="lds-dual-ring text-center"><h1>loading...</h1></div>;
+    if (!isLoaded) return <div className="lds-dual-ring text-center justify-content-center"><h1>loading...</h1></div>;
 
     return (
 
       <>
         <h1 className='text-center'>{newsss}</h1>
- {/* {appointments.length === 0
-   ? (
-        <p className='text-center'>No Appointments</p>
-     )
-   : ( */}
+
        {appointments.map(appt => (
           <div className="card text-bg-light mb-2" key={appt.appointmentId}>
             <div className="card-body">
