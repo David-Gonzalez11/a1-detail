@@ -1,6 +1,7 @@
 .container {
-  width: 900px;
-  height: 900px;
+  width: 100vw;
+  height: 100vh;
+  margin: none;
 }
 
 .image-container {
@@ -22,7 +23,7 @@ p {
 
 .continue-btn {
   margin-top: 7rem;
-  margin-right: 15rem;
+  margin-right: 10rem;
   display: flex;
   justify-content: center;
 }
@@ -91,12 +92,6 @@ ul {
   .card {
     margin: auto;
   }
-
-  /* .nav-item {
-    display: flex;
-    width: 50%;
-    flex-wrap: wrap;
-  } */
 }
 
 @keyframes lds-dual-ring {

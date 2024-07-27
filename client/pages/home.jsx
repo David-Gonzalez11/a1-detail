@@ -24,7 +24,7 @@ export default class Home extends React.Component {
       <>
 
         <div className='row image-container'>
-          <img src="https://media.istockphoto.com/vectors/car-wash-cartoon-symbol-vector-illustration-vector-id1282310388?k=20&m=1282310388&s=612x612&w=0&h=mC7n35uNLQkSYWGQjyAsN8oU8MO25U3Me_6y9iq-duw=" className="main-image"style={style}/>
+          <img src="https://www.amcxtremedetailing.com/wp-content/uploads/2022/04/AMC-Xtreme-Mobile-Detailing-Las-Cruces-NM-mobile-detailing-and-cleaning-services-for-car-rvs-and-boats-15.jpeg" className="main-image"style={style}/>
         </div>
         <div>
           <p className='fs-2 text-primary mt-3 h4'>Changing the appearance of your vehicle with quality service</p>
